@@ -1,0 +1,9 @@
+//Mentation all middleware in this folder and 
+
+// Give the proper coments** and indentation as well
+
+//Give logical variable name
+
+// And when you exporting fuction or middleware so follow camelCase nameing convention
+eg module.exports = { createToken }
+

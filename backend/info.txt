@@ -1,0 +1,32 @@
+
+//Whenever you clone the repo make you own .env and .gitignore files if it is required only 
+mentation the env variable name in the top of the section in this page
+
+
+
+//Mentation All DotEnv Variable name hare eg MONGO_URL=xyz *only mentation the key name 
+
+1. MONGO_URL,
+2
+3
+
+
+
+
+
+
+
+
+//And Also mentation the packeg name and sort detail and your name like why you are useing that packeg
+note: except:-  mongoose , dotenv , express , nodemon , or any general packet  ... hope it make sense
+
+1. 
+
+
+
+
+
+
+
+
+
