@@ -50,12 +50,12 @@ function AllRoutes(props) {
             </Route>
 
             {/* Admin Part */}
-            <Routes path='/dashboard/:name'>
+            <Route path='/dashboard/:name'>
                 <Route index element={<Dashboard/>} />
                 <Route path='updatedetail' element={<UpdateDetails/>} />
                 {/*  Routes for CURD operation */}
                 <Route path='*' element={<ErrorPage/>} />
-            </Routes>
+            </Route>
             
             <Route path='/login' element={<Login/>}/>
             <Route path='*' element={<ErrorPage/>}/>

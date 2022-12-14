@@ -1,8 +1,8 @@
 import React from 'react';
 
 //........
-import UserDashboard from '../components/UserDashboard';
-import RestaurentDashboard from '../components/RestaurentDashboard';
+// import UserDashboard from '../components/UserDashboard';
+// import RestaurentDashboard from '../components/RestaurentDashboard';
 
 
 function Dashboard(props) {
