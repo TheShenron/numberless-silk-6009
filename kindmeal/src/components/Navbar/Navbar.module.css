@@ -1,0 +1,277 @@
+nav{
+    height: 80px;
+}
+.navbar{
+    height: 100%;
+    max-width: 70%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.navbar > div > img{
+    /* border: 1px solid yellow; */
+    max-width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+}
+.navbar_social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.navbar_social > svg{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: lightgray;
+}
+.navbar_login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    gap: 15px;
+}
+.navbar_fb ,.navbar_email{
+    border-radius: 5px;
+    border: none;
+    height: 25px;
+    width: 80px;
+}
+.navbar_fb{
+    background-color: #35619F;
+}
+.navbar_email{
+    background-color: gray;
+}
+.navigate_div{
+    height: 35px;
+    background-color: #2bb673;
+}
+.navigate{
+    max-width: 70%;
+    height: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    font-size: 18px;
+}
+.navigate div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+@media screen and (max-width:1025px){
+    nav{
+        height: 80px;
+    }
+    .navbar{
+        height: 100%;
+        max-width: 70%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+    
+    .navbar > div > img{
+        max-width: 80%;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: content-box;
+    }
+    .navbar_social{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+    .navbar_social > svg{
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background-color: lightgray;
+    }
+    .navbar_login{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        gap: 15px;
+    }
+    .navbar_fb ,.navbar_email{
+        border-radius: 5px;
+        border: none;
+        height: 25px;
+        width: 70px;
+    }
+    .navbar_fb{
+        background-color: #35619F;
+    }
+    .navbar_email{
+        background-color: gray;
+    }
+    .navigate_div{
+        height: 35px;
+        background-color: #2bb673;
+    }
+    .navigate{
+        max-width: 75%;
+        height: 100%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(8,1fr);
+        font-size: 14px;
+    }
+    .navigate div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+}
+@media screen and (max-width:800px){
+    nav{
+        height: 80px;
+    }
+    .navbar{
+        height: 100%;
+        max-width: 70%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+    
+    .navbar > div > img{
+        max-width: 100%;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .navbar_social{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    .navbar_social > svg{
+        width: 1.7rem;
+        height: 1.7rem;
+        border-radius: 50%;
+        background-color: lightgray;
+    }
+    .navbar_login{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+        gap: 10px;
+    }
+    .navbar_fb ,.navbar_email{
+        border-radius: 5px;
+        border: none;
+        height: 20px;
+        width: 60px;
+    }
+    .navbar_fb{
+        background-color: #35619F;
+    }
+    .navbar_email{
+        background-color: gray;
+    }
+    .navigate_div{
+        height: 30px;
+        background-color: #2bb673;
+    }
+    .navigate{
+        max-width: 75%;
+        height: 100%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(8,1fr);
+        font-size: 10px;
+    }
+    .navigate div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+}
+@media screen and (max-width:525px){
+    nav{
+        height: 80px;
+    }
+    .navbar{
+        height: 100%;
+        max-width: 70%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+    
+    .navbar > div > img{
+        max-width: 100%;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .navbar_social{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+    .navbar_social > svg{
+        max-width: 1rem;
+        max-height: 1rem;
+        border-radius: 50%;
+        background-color: lightgray;
+    }
+    .navbar_login{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 8px;
+        gap: 5px;
+    }
+    .navbar_fb ,.navbar_email{
+        border-radius: 5px;
+        border: none;
+        height: 20px;
+        max-width: 45px;
+    }
+    .navbar_fb{
+        background-color: #35619F;
+    }
+    .navbar_email{
+        background-color: gray;
+    }
+    .navigate_div{
+        height: 30px;
+        background-color: #2bb673;
+    }
+    .navigate{
+        max-width: 80%;
+        height: 100%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(8,1fr);
+        font-size: 8px;
+    }
+    .navigate div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+}

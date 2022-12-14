@@ -1,0 +1,23 @@
+#footer{
+    height: 380px;
+    background-color: #2BB673;
+    color: white;
+}
+.content{
+    width: 70%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    padding: 20px;
+}
+.content li{
+    list-style: none;
+    font-size: 14px;
+}
+.copyright{
+    width: 70%;
+    margin: auto;
+    font-size: 14px;
+    text-align: center;
+    padding: 20px;
+}
