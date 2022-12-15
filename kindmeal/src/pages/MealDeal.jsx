@@ -1,9 +1,22 @@
 import React,{ useEffect,useState } from 'react'
 import axios from 'axios'
+import RestaurantCard from '../components/RestaurantCard';
 
 const MealDeal = () => {
-  const {restaurant,setRestaurant} = useState([]);
-  axios.get("http://localhost:8080/Meal_Deals_Page").then(res=>setRestaurant(res.data));
+  const [restaurants,setRestaurant] = useState();
+  const getRestaurant = () =>{
+    axios.get("http://localhost:8080/Meal_Deals_Page")
+  .then(res=>{
+    console.log(res.data[0].foodItem)
+    setRestaurant(res.data[0].foodItem)
+  })
+  .catch(er=>{
+    console.log(er);
+  })
+  }
+  useEffect(()=>{
+     getRestaurant();
+  },[])
   return (
     <>
     <div>
@@ -15,32 +28,33 @@ const MealDeal = () => {
         <input type="text" placeholder='Search Shop or Deal Name'/>
         <select>
           <option value="">All Categories</option>
-          <option value="">Pasta</option>
-          <option value="">Burger</option>
-          <option value="">Breakfast</option>
-          <option value="">Bakery</option>
-          <option value="">Tea & Desert</option>
-          <option value="">Local Delights</option>
-          <option value="">Jap & Korean</option>
-          <option value="">Chinese</option>
-          <option value="">Indian</option>
+          <option value="pasta">Pasta</option>
+          <option value="burger">Burger</option>
+          <option value="break">Breakfast</option>
+          <option value="bakery">Bakery</option>
+          <option value="td">Tea & Desert</option>
+          <option value="ld">Local Delights</option>
+          <option value="J&K">Jap & Korean</option>
+          <option value="chinese">Chinese</option>
+          <option value="indian">Indian</option>
         </select>
         <select >
           <option value=''>All Locations</option>
-          <option value="">Ampang</option>
-          <option value="">Bangsar</option>
-          <option value="">Bangsar South</option>
-          <option value="">Banting</option>
-          <option value="">Kepong</option>
-          <option value="">Klang</option>
-          <option value="">Mont Kiara</option>
-          <option value="">Old Klang Road</option>
+          <option value="ampang">Ampang</option>
+          <option value="bansagar">Bangsar</option>
+          <option value="bansagrs">Bangsar South</option>
+          <option value="banting">Banting</option>
+          <option value="kepong">Kepong</option>
+          <option value="klang">Klang</option>
+          <option value="MK">Mont Kiara</option>
+          <option value="okr">Old Klang Road</option>
         </select>
         <button>Search Deals</button>
         <button>Browse Restaurants</button>
       </div>
       <div><img src="https://www.kindmeal.my/images/banner_directory.jpg" alt="banner" /></div>
       {/* {render restaurant cards} */}
+      {restaurants && restaurants.map((restaurant)=><RestaurantCard key={restaurant.id}/>)}
       <div><img src="https://www.kindmeal.my/images/how_kindmeal_works.png" alt="banner" /></div>
     </>
   )
