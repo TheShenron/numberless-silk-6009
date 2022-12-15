@@ -12,7 +12,7 @@ function Dashboard(props) {
     // dashboard of restaurent
     return (
         <div>
-            
+            Dashboard...
         </div>
     );
 }
