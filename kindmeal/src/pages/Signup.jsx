@@ -1,7 +1,7 @@
 import { useToast } from "@chakra-ui/react";
 import React, { useEffect, useReducer } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { register } from "../Redux/AuthReducer/action";
 const Container = styled.div`
@@ -145,7 +145,7 @@ const Signup = () => {
   const toast = useToast();
   const [state, setState] = useReducer(reducer, initialState);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     document.title =
@@ -163,7 +163,7 @@ const Signup = () => {
           duration: 9000,
           isClosable: true,
         });
-        navigate("/", { replace: true });
+        // navigate("/", { replace: true });
       })
       .catch((e) => {
         toast({
