@@ -14,19 +14,34 @@ const MealDeal = () => {
       <div>
         <input type="text" placeholder='Search Shop or Deal Name'/>
         <select>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
+          <option value="">All Categories</option>
+          <option value="">Pasta</option>
+          <option value="">Burger</option>
+          <option value="">Breakfast</option>
+          <option value="">Bakery</option>
+          <option value="">Tea & Desert</option>
+          <option value="">Local Delights</option>
+          <option value="">Jap & Korean</option>
+          <option value="">Chinese</option>
+          <option value="">Indian</option>
         </select>
-        <input type="text" />
-        <button></button>
-        <button></button>
+        <select >
+          <option value=''>All Locations</option>
+          <option value="">Ampang</option>
+          <option value="">Bangsar</option>
+          <option value="">Bangsar South</option>
+          <option value="">Banting</option>
+          <option value="">Kepong</option>
+          <option value="">Klang</option>
+          <option value="">Mont Kiara</option>
+          <option value="">Old Klang Road</option>
+        </select>
+        <button>Search Deals</button>
+        <button>Browse Restaurants</button>
       </div>
+      <div><img src="https://www.kindmeal.my/images/banner_directory.jpg" alt="banner" /></div>
+      {/* {render restaurant cards} */}
+      <div><img src="https://www.kindmeal.my/images/how_kindmeal_works.png" alt="banner" /></div>
     </>
   )
 }
