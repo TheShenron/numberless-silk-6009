@@ -34,7 +34,7 @@ function Moments(props) {
             <Box width={['95%', '95%', '95%', '80%']} m='auto' py={['50px']}>
 
                 <Stack direction='row' spacing={4} align='center'>
-                    <Button colorScheme='blackAlpha'>
+                    <Button colorScheme='blackAlpha' size={['sm' , 'md']}>
                         Moments
                     </Button >
 
