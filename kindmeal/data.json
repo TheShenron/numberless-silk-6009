@@ -3,6 +3,7 @@
         {
             "foodItem": [
                 {
+                    "id":1,
                     "img": "https://www.kindmeal.my/photos/deal/6/679-4332-l.jpg",
                     "category": "Garden Comfort Food",
                     "title": "Garden Vegetarian Cafe",
@@ -11,7 +12,14 @@
                     "discount":"20%",
                     "expiry":"22 Hours",
                     "name": "Shah Alam , Selangor",
-                    "discription": "Relax with your favorite Asian & Western comfort food, crafted with quality ingredients and a creative touch. Enjoy discount on a..",
+                    "food":"pasta",
+                    "place":"ampang",
+                    "description": "Relax with your favorite Asian & Western comfort food, crafted with quality ingredients and a creative touch. Enjoy discount on a..",
+                    "contains":{
+                        "egg":false,
+                        "dairy":true,
+                        "alcohol":false
+                    },
                     "page": [
                         {
                             "backgroundImg": "https://www.kindmeal.my/photos/shop/5/562-c.jpg",
@@ -67,7 +75,7 @@
                         },
                         {
                             "Inner_MealDealsPage": {
-                                "discription": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
+                                "description": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
                                 "img": "https://www.kindmeal.my/photos/deal/6/679-4332-l.jpg"
                             },
                             "Food_Menu": [
@@ -100,7 +108,8 @@
                         }
                     ]
                 },
-                {
+                {  
+                    "id":2,
                     "img": "https://www.kindmeal.my/photos/deal/4/467-2796-l.jpg",
                     "category": "Churros,Coffee & Meals",
                     "title": "PCLO Cafe",
@@ -108,8 +117,15 @@
                     "normal_price":15.0,
                     "discount":"20%",
                     "expiry":"22 Hours",
+                    "food":"burger",
+                    "place":"bangsar",
                     "name": "Kuala Lumpur, Wilayah Persekutuan",
-                    "discription": "Think of Churros, think of PCLO Cafe! Each batch of eggless Churros is made with passion and from scratch in our kitchen. Which ..",
+                    "description": "Think of Churros, think of PCLO Cafe! Each batch of eggless Churros is made with passion and from scratch in our kitchen. Which ..",
+                    "contains":{
+                        "egg":false,
+                        "dairy":true,
+                        "alcohol":false
+                    },
                     "page": [
                         {
                             "backgroundImg": "https://www.kindmeal.my/photos/shop/5/562-c.jpg",
@@ -165,7 +181,7 @@
                         },
                         {
                             "Inner_MealDealsPage": {
-                                "discription": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
+                                "description": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
                                 "img": "https://www.kindmeal.my/photos/deal/6/679-4332-l.jpg"
                             },
                             "Food_Menu": [
@@ -199,6 +215,7 @@
                     ]
                 },
                 {
+                    "id":3,
                     "img": "https://www.kindmeal.my/photos/deal/5/506-2350-l.jpg",
                     "category": "Cozy Oriental Dinning",
                     "title": "Ring Zhi Vegetarian Restaurant 灵芝素食饭店 ",
@@ -206,8 +223,15 @@
                     "normal_price":15.0,
                     "discount":"20%",
                     "expiry":"19 Hours",
+                    "food":"break",
+                    "place":"bangsars",
                     "name": "Kepong, Kuala Lumpur",
-                    "discription": "This place brings back memories to those days where we would have such delicious authentic meals for festive eats. Select from AN..",
+                    "description": "This place brings back memories to those days where we would have such delicious authentic meals for festive eats. Select from AN..",
+                    "contains":{
+                        "egg":false,
+                        "dairy":true,
+                        "alcohol":true
+                    },
                     "page": [
                         {
                             "backgroundImg": "https://www.kindmeal.my/photos/shop/5/562-c.jpg",
@@ -263,7 +287,7 @@
                         },
                         {
                             "Inner_MealDealsPage": {
-                                "discription": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
+                                "description": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
                                 "img": "https://www.kindmeal.my/photos/deal/6/679-4332-l.jpg"
                             },
                             "Food_Menu": [
@@ -297,6 +321,7 @@
                     ]
                 },
                 {
+                    "id":4,
                     "img": "https://www.kindmeal.my/photos/deal/6/644-3810-l.jpg",
                     "category": "Wholesome Western Experience",
                     "title": "Piccolo Cafe ",
@@ -304,8 +329,15 @@
                     "normal_price":8.0,
                     "discount":"15%",
                     "expiry":"1 Days",
+                    "food":"bakery",
+                    "place":"banting",
                     "name": " Seri Kembangan, Selangor",
-                    "discription": "Enjoy delicious, wholesome Western cuisine at our cozy, relaxing cafe while we serenade you with our artsy ambiance and musical mo..",
+                    "description": "Enjoy delicious, wholesome Western cuisine at our cozy, relaxing cafe while we serenade you with our artsy ambiance and musical mo..",
+                    "contains":{
+                        "egg":true,
+                        "dairy":true,
+                        "alcohol":false
+                    },
                     "page": [
                         {
                             "backgroundImg": "https://www.kindmeal.my/photos/shop/5/562-c.jpg",
@@ -361,7 +393,7 @@
                         },
                         {
                             "Inner_MealDealsPage": {
-                                "discription": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
+                                "description": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
                                 "img": "https://www.kindmeal.my/photos/deal/6/679-4332-l.jpg"
                             },
                             "Food_Menu": [
@@ -395,6 +427,7 @@
                     ]
                 },
                 {
+                    "id":5,
                     "img": "https://www.kindmeal.my/photos/deal/6/671-4245-l.jpg",
                     "category": "Authentic Sarawak Flavors",
                     "title": "Er Lou Cafe ",
@@ -402,8 +435,15 @@
                     "normal_price":13.0,
                     "discount":"20%",
                     "expiry":"05 Hours",
+                    "food":"td",
+                    "place":"kepong",
                     "name": "Petaling Jaya, Selangor",
-                    "discription": "Indulge yourself in Sarawak heritage cuisine, featuring Er Lou's house-rolled smooth noodles with a choice of thick or thin strand..",
+                    "description": "Indulge yourself in Sarawak heritage cuisine, featuring Er Lou's house-rolled smooth noodles with a choice of thick or thin strand..",
+                    "contains":{
+                        "egg":false,
+                        "dairy":false,
+                        "alcohol":false
+                    },
                     "page": [
                         {
                             "backgroundImg": "https://www.kindmeal.my/photos/shop/5/562-c.jpg",
@@ -459,7 +499,7 @@
                         },
                         {
                             "Inner_MealDealsPage": {
-                                "discription": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
+                                "description": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
                                 "img": "https://www.kindmeal.my/photos/deal/6/679-4332-l.jpg"
                             },
                             "Food_Menu": [
@@ -493,6 +533,7 @@
                     ]
                 },
                 {
+                    "id":6,
                     "img": "https://www.kindmeal.my/photos/deal/4/457-2109-l.jpg",
                     "category": "Flavour Around the World",
                     "title": "The Black Cat Cafe",
@@ -500,8 +541,15 @@
                     "normal_price":18.0,
                     "discount":"20%",
                     "expiry":"22 Hours",
+                    "food":"ld",
+                    "place":"klang",
                     "name": "Kuala Lumpur, Wilayah Persekutuan",
-                    "discription": "Western and Asian cuisine, all prepared in our humble kitchen with utmost passion and love. On Weekdays, select ANY items from ..",
+                    "description": "Western and Asian cuisine, all prepared in our humble kitchen with utmost passion and love. On Weekdays, select ANY items from ..",
+                    "contains":{
+                        "egg":true,
+                        "dairy":true,
+                        "alcohol":false
+                    },
                     "page": [
                         {
                             "backgroundImg": "https://www.kindmeal.my/photos/shop/5/562-c.jpg",
@@ -557,7 +605,7 @@
                         },
                         {
                             "Inner_MealDealsPage": {
-                                "discription": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
+                                "description": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
                                 "img": "https://www.kindmeal.my/photos/deal/6/679-4332-l.jpg"
                             },
                             "Food_Menu": [
@@ -591,6 +639,7 @@
                     ]
                 },
                 {
+                    "id":7,
                     "img": "https://www.kindmeal.my/photos/deal/7/704-4734-l.jpg",
                     "category": "Vegan Ice-Cream Indulgence",
                     "title": "Negative 12 Degrees",
@@ -598,8 +647,15 @@
                     "normal_price":15.0,
                     "discount":"25%",
                     "expiry":"2 Hours",
+                    "food":"J&K",
+                    "place":"MK",
                     "name": " Bangsar, Kuala Lumpur",
-                    "discription": "Indulge in our rich, flavorful selection of vegan ice-creams, crafted with healthy, natural ingredients. Enjoy any ice-creams fro..",
+                    "description": "Indulge in our rich, flavorful selection of vegan ice-creams, crafted with healthy, natural ingredients. Enjoy any ice-creams fro..",
+                    "contains":{
+                        "egg":false,
+                        "dairy":true,
+                        "alcohol":false
+                    },
                     "page": [
                         {
                             "backgroundImg": "https://www.kindmeal.my/photos/shop/5/562-c.jpg",
@@ -655,7 +711,7 @@
                         },
                         {
                             "Inner_MealDealsPage": {
-                                "discription": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
+                                "description": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
                                 "img": "https://www.kindmeal.my/photos/deal/6/679-4332-l.jpg"
                             },
                             "Food_Menu": [
@@ -689,6 +745,7 @@
                     ]
                 },
                 {
+                    "id":8,
                     "img": "https://www.kindmeal.my/photos/deal/6/680-4384-l.jpg",
                     "category": "Hearty Comfort Food",
                     "title": "Su Zhi Yuan Cafe 素之缘餐厅",
@@ -696,8 +753,15 @@
                     "normal_price":17.0,
                     "discount":"15%",
                     "expiry":"20 Hours",
+                    "food":"indian",
+                    "place":"Old Klang Road",
                     "name": " Sungai Buloh, Selangor",
-                    "discription": "Su Zhi Yuan Cafe strives to serve you delicious and healthy vegetarian meals within a comfortable dining environment. All our foo..",
+                    "description": "Su Zhi Yuan Cafe strives to serve you delicious and healthy vegetarian meals within a comfortable dining environment. All our foo..",
+                    "contains":{
+                        "egg":false,
+                        "dairy":true,
+                        "alcohol":false
+                    },
                     "page": [
                         {
                             "backgroundImg": "https://www.kindmeal.my/photos/shop/5/562-c.jpg",
@@ -753,7 +817,7 @@
                         },
                         {
                             "Inner_MealDealsPage": {
-                                "discription": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
+                                "description": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
                                 "img": "https://www.kindmeal.my/photos/deal/6/679-4332-l.jpg"
                             },
                             "Food_Menu": [
@@ -787,6 +851,7 @@
                     ]
                 },
                 {
+                    "id":9,
                     "img": "https://www.kindmeal.my/photos/deal/3/383-1189-l.jpg",
                     "category": "Dining Bowl Asian Delicacies",
                     "title": "Dining Bowl",
@@ -794,8 +859,15 @@
                     "normal_price":13.0,
                     "discount":"20%",
                     "expiry":"14 Hours",
+                    "food":"chinese",
+                    "place":"bangsar",
                     "name": "Kuala Lumpur, Wilayah Persekutuan",
-                    "discription": "Dine in this authentic cozy Chinese environment with any items from the menu, made with fresh and quality ingredients, in an envir..",
+                    "description": "Dine in this authentic cozy Chinese environment with any items from the menu, made with fresh and quality ingredients, in an envir..",
+                    "contains":{
+                        "egg":false,
+                        "dairy":true,
+                        "alcohol":false
+                    },
                     "page": [
                         {
                             "backgroundImg": "https://www.kindmeal.my/photos/shop/5/562-c.jpg",
@@ -851,7 +923,7 @@
                         },
                         {
                             "Inner_MealDealsPage": {
-                                "discription": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
+                                "description": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
                                 "img": "https://www.kindmeal.my/photos/deal/6/679-4332-l.jpg"
                             },
                             "Food_Menu": [
@@ -885,6 +957,7 @@
                     ]
                 },
                 {
+                    "id":10,
                     "img": "https://www.kindmeal.my/photos/deal/4/403-1390-l.jpg",
                     "category": "Wellness Meal + 10% Off Organic Products",
                     "title": "Juve Wellness Puchong",
@@ -893,7 +966,12 @@
                     "discount":"20%",
                     "expiry":"22 Hours",
                     "name": "Puchong, Selangor",
-                    "discription": "Select from Ala Carte meal items from the menu, served with a cup of Wellness Tea! Featured food menu items include: Juve Four Se..",
+                    "description": "Select from Ala Carte meal items from the menu, served with a cup of Wellness Tea! Featured food menu items include: Juve Four Se..",
+                    "contains":{
+                        "egg":false,
+                        "dairy":false,
+                        "alcohol":true
+                    },
                     "page": [
                         {
                             "backgroundImg": "https://www.kindmeal.my/photos/shop/5/562-c.jpg",
@@ -949,7 +1027,7 @@
                         },
                         {
                             "Inner_MealDealsPage": {
-                                "discription": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
+                                "description": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
                                 "img": "https://www.kindmeal.my/photos/deal/6/679-4332-l.jpg"
                             },
                             "Food_Menu": [
@@ -983,6 +1061,7 @@
                     ]
                 },
                 {
+                    "id":11,
                     "img": "https://www.kindmeal.my/photos/deal/6/642-3775-l.jpg",
                     "category": "Healthy, Sustainable Meals",
                     "title": "Lohas Vegetarian Bistro",
@@ -991,7 +1070,12 @@
                     "discount":"20%",
                     "expiry":"22 Hours",
                     "name": "Petaling Jaya, Selangor",
-                    "discription": "Experience healthy, sustainable living with our delicious and affordable meat-free meals. Select any from our menu: BENTO SET Se..",
+                    "description": "Experience healthy, sustainable living with our delicious and affordable meat-free meals. Select any from our menu: BENTO SET Se..",
+                    "contains":{
+                        "egg":false,
+                        "dairy":true,
+                        "alcohol":false
+                    },
                     "page": [
                         {
                             "backgroundImg": "https://www.kindmeal.my/photos/shop/5/562-c.jpg",
@@ -1047,7 +1131,7 @@
                         },
                         {
                             "Inner_MealDealsPage": {
-                                "discription": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
+                                "description": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
                                 "img": "https://www.kindmeal.my/photos/deal/6/679-4332-l.jpg"
                             },
                             "Food_Menu": [
@@ -1081,6 +1165,7 @@
                     ]
                 },
                 {
+                    "id":12,
                     "img": "https://www.kindmeal.my/photos/deal/4/469-1822-l.jpg",
                     "category": "Healthy Personal Salad",
                     "title": "Salad Atelier",
@@ -1089,7 +1174,12 @@
                     "discount":"12%",
                     "expiry":"5 Days",
                     "name": "Jalan Tun Razak & 4 Branches",
-                    "discription": "Enjoy a crispy, crunchy adult-sized salad prepared with fresh greens, fruits and healthy ingredients! Choose from a base, 6 meat-..",
+                    "description": "Enjoy a crispy, crunchy adult-sized salad prepared with fresh greens, fruits and healthy ingredients! Choose from a base, 6 meat-..",
+                    "contains":{
+                        "egg":false,
+                        "dairy":true,
+                        "alcohol":true
+                    },
                     "page": [
                         {
                             "backgroundImg": "https://www.kindmeal.my/photos/shop/5/562-c.jpg",
@@ -1145,7 +1235,7 @@
                         },
                         {
                             "Inner_MealDealsPage": {
-                                "discription": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
+                                "description": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
                                 "img": "https://www.kindmeal.my/photos/deal/6/679-4332-l.jpg"
                             },
                             "Food_Menu": [
@@ -1179,6 +1269,7 @@
                     ]
                 },
                 {
+                    "id":13,
                     "img": "https://www.kindmeal.my/photos/deal/7/707-4819-l.jpg",
                     "category": "Simple Is The Best",
                     "title": "Simple Garden Cafe",
@@ -1187,7 +1278,12 @@
                     "discount":"15%",
                     "expiry":"22 Hours",
                     "name": "Sri Petaling, Kuala Lumpur",
-                    "discription": "We strive to delight you with simple yet tasty and nutritious meals that you would simply love! Feast on any items from our meatl..",
+                    "description": "We strive to delight you with simple yet tasty and nutritious meals that you would simply love! Feast on any items from our meatl..",
+                    "contains":{
+                        "egg":true,
+                        "dairy":true,
+                        "alcohol":true
+                    },
                     "page": [
                         {
                             "backgroundImg": "https://www.kindmeal.my/photos/shop/5/562-c.jpg",
@@ -1243,7 +1339,7 @@
                         },
                         {
                             "Inner_MealDealsPage": {
-                                "discription": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
+                                "description": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
                                 "img": "https://www.kindmeal.my/photos/deal/6/679-4332-l.jpg"
                             },
                             "Food_Menu": [
@@ -1277,6 +1373,7 @@
                     ]
                 },
                 {
+                    "id":14,
                     "img": "https://www.kindmeal.my/photos/deal/6/628-4921-l.jpg",
                     "category": "Japanese Fusion Delights",
                     "title": "Sushi Kitchen Kota Damansara",
@@ -1285,7 +1382,12 @@
                     "discount":"20%",
                     "expiry":"10 Hours",
                     "name": "SPetaling Jaya, Selangor",
-                    "discription": "Enjoy creative, delicious and healthy fusion Japanese cuisine at Sushi Kitchen! Meticulously prepared with fresh, quality ingredi..",
+                    "description": "Enjoy creative, delicious and healthy fusion Japanese cuisine at Sushi Kitchen! Meticulously prepared with fresh, quality ingredi..",
+                    "contains":{
+                        "egg":false,
+                        "dairy":true,
+                        "alcohol":false
+                    },
                     "page": [
                         {
                             "backgroundImg": "https://www.kindmeal.my/photos/shop/5/562-c.jpg",
@@ -1341,7 +1443,7 @@
                         },
                         {
                             "Inner_MealDealsPage": {
-                                "discription": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
+                                "description": "Here are exciting deals brought to you by Garden Vegetarian Cafe.To take advantage of a deal, just click into it and obtain the corresponding coupon.",
                                 "img": "https://www.kindmeal.my/photos/deal/6/679-4332-l.jpg"
                             },
                             "Food_Menu": [
