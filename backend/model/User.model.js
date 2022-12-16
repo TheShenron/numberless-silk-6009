@@ -22,6 +22,7 @@ const userSchema = mongoose.Schema({
         default: Date.now
     }
 
+    
 })
 
 const userModel = mongoose.model('user' , userSchema)
