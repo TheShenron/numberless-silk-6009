@@ -1,0 +1,44 @@
+const express = require('express')
+const app = express()
+const PORT = process.env.PORT || 8080
+
+//DotEnv import
+require('dotenv').config()
+
+//MongoDB connect
+const { connect } = require('./config/db')
+
+//routes. imports
+const { login } = require("./routes/login.route")
+const { signup } = require('./routes/signup.route')
+const { featureMeal } = require('./routes/featureMeal.route')
+const { restMenue } = require('./routes/restFoodMenu.route')
+
+//app use
+app.use(express.json())
+
+//for google oauth
+const session = require('express-session')
+app.use(session({secret:process.env.SECRATE_KEY , resave:false , saveUninitialized:true}))
+
+
+
+
+//routes
+app.use('/login' , login)
+app.use('/signup' , signup)
+app.use('/featureMeal' , featureMeal)
+app.use('/restMenue' , restMenue)
+
+
+app.get('/' , (req,res)=>{
+    res.send({msg:"welcome to KindMeal API " , status:true})
+})
+
+app.listen(PORT , async ()=>{
+
+    console.log("App is Running at " + PORT)
+    await connect
+    console.log("Connected to MongoDB")
+
+})
