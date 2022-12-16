@@ -50,3 +50,20 @@
     font-size: 14px;
     color: rgb(131, 128, 128);
 }
+.discount{
+    text-align: center;
+}
+.discount>h6{
+    font-size: 15px;
+}
+.discount>p{
+    font-size: 20px;
+    font-weight: 600;
+    color: red;
+}
+.discount+div{
+    font-size: 20px;
+}
+.discount+div>p{
+    font-size: 15px;
+}

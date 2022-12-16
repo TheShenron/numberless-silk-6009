@@ -21,6 +21,7 @@ import Login from '../pages/Login';
 // Admin 
 import Dashboard from '../pages/Dashboard';
 import UpdateDetails from '../pages/UpdateDetails';
+import Restaurant from '../components/Restaurant';
 
 //private route.
 import PrivateRoute from '../privateRoutes/PrivateRoute';
@@ -53,6 +54,18 @@ function AllRoutes(props) {
             </Route>
 
             {/* Admin Part */}
+
+            <Route path='/dashboard/:name'>
+                <Route index element={<Dashboard/>} />
+                <Route path='updatedetail' element={<UpdateDetails/>} />
+                {/*  Routes for CURD operation */}
+                <Route path='*' element={<ErrorPage/>} />
+            </Route>
+            
+            <Route path='/login' element={<Login/>}/>
+            <Route path='*' element={<ErrorPage/>}/>
+            <Route path='deals/restaurant/:id' element={<Restaurant/>}/>
+
                 <Route path='/dashboard/:name'>
                     <Route index element={
                         <PrivateRoute>
