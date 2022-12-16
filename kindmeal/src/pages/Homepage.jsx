@@ -251,7 +251,7 @@ function Homepage() {
         </Box>
         {/* join button */}
         <Flex justify={"center"} p="100px">
-          <Button colorScheme="red" w="450px" h="90px" bgColor="red">
+          <Button colorScheme="red" w="451px" h="90px" bgColor="red">
             <Text fontSize="2xl">Join Kindmeal Now</Text>
           </Button>
         </Flex>
