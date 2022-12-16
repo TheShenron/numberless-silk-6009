@@ -236,7 +236,7 @@ function Homepage() {
               color={"gray.500"}
             >
               Any restaurant or cafe can join KindMeal, vegetarian or not, as
-              long as the deals and menu featured are meat-free.
+              long as the deals and menu featured are meat-free
             </Text>
           </Center>
           <Center>
