@@ -25,6 +25,7 @@ import Restaurant from '../components/Restaurant';
 
 //private route.
 import PrivateRoute from '../privateRoutes/PrivateRoute';
+import SignupRest from '../pages/SignupRest';
 
 function AllRoutes(props) {
     return (
@@ -52,6 +53,7 @@ function AllRoutes(props) {
                 <Route path='joinshop' element={<SignupJoinshop />} />
                 <Route path='*' element={<ErrorPage />} />
             </Route>
+            <Route path='/sign' element={<SignupRest />}></Route>
 
             {/* Admin Part */}
 
