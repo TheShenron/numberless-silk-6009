@@ -18,8 +18,8 @@ const Navbar = () => {
         </div>
         <div className={styles.navbar_login}>
           {/* <p>Login</p> */}
-          <button className={styles.navbar_fb}>Login</button>
-          <button className={styles.navbar_email}>Signup</button>
+          <button className={styles.navbar_fb}><Link>Login</Link></button>
+          <button className={styles.navbar_email}><Link>Signup</Link></button>
           {/* <p>Sign up</p> */}
         </div>
       </div>

@@ -96,7 +96,7 @@ function Homepage() {
                 fontSize={{ base: "xs", sm: "xs", md: "md", lg: "md" }}
                 color={"blue.600"}
               >
-                <Link> -Follow Our Facebook </Link>
+                <Link> - Follow Our Facebook </Link>
               </Text>
             </Flex>
           </Flex>
@@ -137,9 +137,9 @@ function Homepage() {
           </Center>
         </Box>
         {/* deals and offers  */}
-        <Box maxW={{ base: "100%", sm: "100%", md: "70%", lg: "70%" }} m="auto">
-          <Flex gap={4}>
-            <Box boxShadow="dark-lg" maxW={"24%"} p={5} borderRadius="10px">
+        <Box maxW={{ base: "90%", sm: "90%", md: "90%", lg: "70%" }} m="auto">
+          <Grid templateColumns={{base:"repeat(2,1fr)",sm:"repeat(2,1fr)",md:"repeat(4,1fr)",lg:"repeat(4,1fr)"}} gap={4}>
+            <Box boxShadow="dark-lg" p={5} borderRadius="10px">
               <Center>
                 {" "}
                 <Image
@@ -161,7 +161,7 @@ function Homepage() {
                 </Text>{" "}
               </Center>
             </Box>
-            <Box boxShadow="dark-lg" maxW={"24%"} p={5} borderRadius="10px">
+            <Box boxShadow="dark-lg" p={5} borderRadius="10px">
               <Center>
                 {" "}
                 <Image
@@ -182,7 +182,7 @@ function Homepage() {
                 </Text>{" "}
               </Center>
             </Box>
-            <Box boxShadow="dark-lg" maxW={"24%"} p={5} borderRadius="10px">
+            <Box boxShadow="dark-lg" p={5} borderRadius="10px">
               <Center>
                 {" "}
                 <Image
@@ -203,7 +203,7 @@ function Homepage() {
                 </Text>{" "}
               </Center>
             </Box>
-            <Box boxShadow="dark-lg" maxW={"24%"} p={5} borderRadius="10px">
+            <Box boxShadow="dark-lg" p={5} borderRadius="10px">
               <Center>
                 {" "}
                 <Image
@@ -224,7 +224,7 @@ function Homepage() {
                 </Text>{" "}
               </Center>
             </Box>
-          </Flex>
+          </Grid>
         </Box>
         <br />
         <br />
@@ -236,7 +236,7 @@ function Homepage() {
               color={"gray.500"}
             >
               Any restaurant or cafe can join KindMeal, vegetarian or not, as
-              long as the deals and menu featured are meat-free.
+              long as the deals and menu featured are meat-free
             </Text>
           </Center>
           <Center>
@@ -251,7 +251,7 @@ function Homepage() {
         </Box>
         {/* join button */}
         <Flex justify={"center"} p="100px">
-          <Button colorScheme="red" w="450px" h="90px" bgColor="red">
+          <Button colorScheme="red" w="451px" h="90px" bgColor="red">
             <Text fontSize="2xl">Join Kindmeal Now</Text>
           </Button>
         </Flex>
