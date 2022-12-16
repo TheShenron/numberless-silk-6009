@@ -156,7 +156,7 @@ const reducer = (state, action) => {
   }
 };
 
-const Signup = () => {
+const SignupRest = () => {
   const toast = useToast();
   const [state, setState] = useReducer(reducer, initialState);
   const dispatch = useDispatch();
@@ -230,27 +230,36 @@ const Signup = () => {
         </Signupdivimg>
         <Signupdivdetail>
           <div style={{ display: "flex" }}>
-            <Heading>Food Lover? Sign Up Now or </Heading>
-            <Heading style={{ color: "#2184ff", marginLeft: "10px" }}>
+            <Heading>Restaurant / Shop Owner? Sign Up Now. </Heading>
+            {/* <Heading style={{ color: "#2184ff", marginLeft: "10px" }}>
               {" "}
               Login With Facebook
-            </Heading>
-            <br />
+            </Heading> */}
           </div>
-          <br />
-          <p style={{ fontSize: "14px", fontWeight: "600" }}>
-            Discover tasty meat-free meals and dine instantly — no coupon
-            payment, booking or printing is required.
+          <p style={{ fontSize: "16px", fontWeight: "600" }}>
+          Improve your business, 
+          build brand loyalty, and save precious animal lives! Join KindMeal
+           now to enjoy the following features:
           </p>
+          <ul style={{marginLeft: "35px", marginTop: "10px"}}>
+            <li>Effectively reach over 200,000 consumers</li>
+            <li>Feature your shop across premium partner platforms & media channels</li>
+            <li>Offer coupons & deals to attract new customers</li>
+            <li>Showcase your delicious meat-free meals</li>
+            <li>Interact with our community of food lovers</li>
+            <li>Get your exclusive Shop Page — <a href="https://KindMeal.my/YourShopName" style={{color: "red"}}>https://KindMeal.my/YourShopName</a></li>
+          </ul>
           <br />
-          <p style={{ fontSize: "14px", fontWeight: "600" }}>
-            KindMeal is a fun, exciting and cool new way for you to show your
-            compassion towards animals. We collaborate with kind restaurants and
-            cafes across the nation to bring you delicious meat-free foods that
-            will not only help save precious animal lives, but improve your
-            health and save your money at the same time!
+          <p style={{ fontSize: "16px", fontWeight: "600" }}>
+          To support our welfare causes, we offer simple, affordable 
+          Premium Plans on a monthly subscription basis, starting from RM 99 only. No deal commissions,
+           no hidden fees. Premium Plan details are available upon signing up.
           </p>
-          <Signupdetaildiv>
+          <div style={{marginTop: "30px"}}> 
+             <h2 style={{fontSize: "22px", fontWeight: "400"}}> Personal Profile </h2>
+             <p  style={{ fontSize: "16px", fontWeight: "350" }}>First, we setup your personal profile, then proceed to configure your shop promotions.</p>
+              </div>
+          <Signupdetaildiv>     
             <Detailnamediv>
               <br />
               <P>Your Name</P>
@@ -431,7 +440,7 @@ const Signup = () => {
               </div>
               <Input
                 type={"submit"}
-                value="Join Now"
+                value="Set Up My Shop & Deals >>"
                 style={{
                   display: "block",
                   height: "45px",
@@ -463,5 +472,5 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignupRest;
 
