@@ -137,9 +137,9 @@ function Homepage() {
           </Center>
         </Box>
         {/* deals and offers  */}
-        <Box maxW={{ base: "100%", sm: "100%", md: "70%", lg: "70%" }} m="auto">
-          <Flex gap={4}>
-            <Box boxShadow="dark-lg" maxW={"24%"} p={5} borderRadius="10px">
+        <Box maxW={{ base: "90%", sm: "90%", md: "90%", lg: "70%" }} m="auto">
+          <Grid templateColumns={{base:"repeat(2,1fr)",sm:"repeat(2,1fr)",md:"repeat(4,1fr)",lg:"repeat(4,1fr)"}} gap={4}>
+            <Box boxShadow="dark-lg" p={5} borderRadius="10px">
               <Center>
                 {" "}
                 <Image
@@ -161,7 +161,7 @@ function Homepage() {
                 </Text>{" "}
               </Center>
             </Box>
-            <Box boxShadow="dark-lg" maxW={"24%"} p={5} borderRadius="10px">
+            <Box boxShadow="dark-lg" p={5} borderRadius="10px">
               <Center>
                 {" "}
                 <Image
@@ -182,7 +182,7 @@ function Homepage() {
                 </Text>{" "}
               </Center>
             </Box>
-            <Box boxShadow="dark-lg" maxW={"24%"} p={5} borderRadius="10px">
+            <Box boxShadow="dark-lg" p={5} borderRadius="10px">
               <Center>
                 {" "}
                 <Image
@@ -203,7 +203,7 @@ function Homepage() {
                 </Text>{" "}
               </Center>
             </Box>
-            <Box boxShadow="dark-lg" maxW={"24%"} p={5} borderRadius="10px">
+            <Box boxShadow="dark-lg" p={5} borderRadius="10px">
               <Center>
                 {" "}
                 <Image
@@ -224,7 +224,7 @@ function Homepage() {
                 </Text>{" "}
               </Center>
             </Box>
-          </Flex>
+          </Grid>
         </Box>
         <br />
         <br />
