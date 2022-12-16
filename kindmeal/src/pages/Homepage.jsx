@@ -96,7 +96,7 @@ function Homepage() {
                 fontSize={{ base: "xs", sm: "xs", md: "md", lg: "md" }}
                 color={"blue.600"}
               >
-                <Link> -Follow Our Facebook </Link>
+                <Link> - Follow Our Facebook </Link>
               </Text>
             </Flex>
           </Flex>
