@@ -36,6 +36,7 @@ nav{
     align-items: center;
     font-size: 12px;
     gap: 15px;
+    color: white;
 }
 .navbar_fb ,.navbar_email{
     border-radius: 5px;
@@ -44,10 +45,10 @@ nav{
     width: 80px;
 }
 .navbar_fb{
-    background-color: #35619F;
+    background-color:green;
 }
 .navbar_email{
-    background-color: gray;
+    background-color:red;
 }
 .navigate_div{
     height: 35px;
@@ -113,10 +114,10 @@ nav{
         width: 70px;
     }
     .navbar_fb{
-        background-color: #35619F;
+        background-color:green;
     }
     .navbar_email{
-        background-color: gray;
+        background-color:red;
     }
     .navigate_div{
         height: 35px;
@@ -182,10 +183,10 @@ nav{
         width: 60px;
     }
     .navbar_fb{
-        background-color: #35619F;
+        background-color:green;
     }
     .navbar_email{
-        background-color: gray;
+        background-color:red;
     }
     .navigate_div{
         height: 30px;
@@ -251,10 +252,10 @@ nav{
         max-width: 45px;
     }
     .navbar_fb{
-        background-color: #35619F;
+        background-color:green;
     }
     .navbar_email{
-        background-color: gray;
+        background-color:red;
     }
     .navigate_div{
         height: 30px;

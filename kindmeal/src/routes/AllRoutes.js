@@ -23,34 +23,38 @@ import Dashboard from '../pages/Dashboard';
 import UpdateDetails from '../pages/UpdateDetails';
 import Restaurant from '../components/Restaurant';
 
+//private route.
+import PrivateRoute from '../privateRoutes/PrivateRoute';
+
 function AllRoutes(props) {
     return (
         <Routes>
-            
-            <Route path='/' element={<Homepage/>}/>
-            
+
+            <Route path='/' element={<Homepage />} />
+
             <Route path='/:name' >
-                <Route index element={<Identify/>} />
-                <Route path='recipes/:id' element={<UserRecipe/> } />
-                <Route path='moments/:id' element={<UserMoment/>} />
-                <Route path='deals/:id' element={<RestaurantDeals/>} />
-                <Route path='menu' element={<RestaurantMenu/>} />
-                <Route path='location' element={<RestaurantLocation/>} />
-                <Route path='*' element={<ErrorPage/>} />
+                <Route index element={<Identify />} />
+                <Route path='recipes/:id' element={<UserRecipe />} />
+                <Route path='moments/:id' element={<UserMoment />} />
+                <Route path='deals/:id' element={<RestaurantDeals />} />
+                <Route path='menu' element={<RestaurantMenu />} />
+                <Route path='location' element={<RestaurantLocation />} />
+                <Route path='*' element={<ErrorPage />} />
             </Route>
 
-            <Route path='/deals' element={<Deals/>}/>
-            <Route path='/moments' element={<Moments/>}/>
-            <Route path='/recipes' element={<Recipes/>}/>
-            
+            <Route path='/deals' element={<Deals />} />
+            <Route path='/moments' element={<Moments />} />
+            <Route path='/recipes' element={<Recipes />} />
+
             <Route path='/signup' >
-                <Route index element={<Signup/>} />
-                <Route path='join' element={<SignupJoin/>} />
-                <Route path='joinshop' element={<SignupJoinshop/>} />
-                <Route path='*' element={<ErrorPage/>} />
+                <Route index element={<Signup />} />
+                <Route path='join' element={<SignupJoin />} />
+                <Route path='joinshop' element={<SignupJoinshop />} />
+                <Route path='*' element={<ErrorPage />} />
             </Route>
 
             {/* Admin Part */}
+
             <Route path='/dashboard/:name'>
                 <Route index element={<Dashboard/>} />
                 <Route path='updatedetail' element={<UpdateDetails/>} />
@@ -61,6 +65,25 @@ function AllRoutes(props) {
             <Route path='/login' element={<Login/>}/>
             <Route path='*' element={<ErrorPage/>}/>
             <Route path='deals/restaurant/:id' element={<Restaurant/>}/>
+
+                <Route path='/dashboard/:name'>
+                    <Route index element={
+                        <PrivateRoute>
+                            <Dashboard />
+                        </PrivateRoute>
+                    } />
+                    <Route path='updatedetail' element={
+                        <PrivateRoute>
+                            <UpdateDetails />
+                        </PrivateRoute>
+                    } />
+                    {/*  Routes for CURD operation */}
+                    <Route path='*' element={<ErrorPage />} />
+                </Route>
+
+            <Route path='/login' element={<Login />} />
+            <Route path='*' element={<ErrorPage />} />
+
         </Routes>
     );
 }
