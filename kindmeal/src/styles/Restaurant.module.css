@@ -1,0 +1,107 @@
+.backgroudimage{
+    width: 100%;
+    height: 300px;
+}
+.backgroudimage>img{
+    width: 100%;
+}
+.profile{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    gap: 40px;
+    position: relative;
+    top: -20px;
+    background: rgb(255, 255, 255,.6);
+}
+.profilephoto{
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    position: relative;
+    bottom: 80px;
+    
+}
+.restaurantname{
+    font-size: 20px;
+    font-weight: 600;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.details{
+    width: 80%;
+    margin: auto;
+    background-color: rgb(230, 224, 224);
+    border-radius: 10px;
+}
+.details>h1{
+    text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.pricedetail{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+.foodimage{
+    width: 100%;
+    height: 350px;
+}
+.foodimage>img{
+    width: 100%;
+    height: 100%;
+}
+.price{
+    width: 100%;
+    height: 350px;
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(2,1fr);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.price_coupon{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    align-items: center;
+    border-top: 1px solid black;
+}
+.productdetail{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 30px;
+}
+.price>div>p{
+    margin-top: 10px;
+}
+.price_price{
+    font-size: 45px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+}
+.discount_price{
+    font-size: 45px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: green;
+}
+.price_discount{
+    border-left: 1px solid black;
+}
+.price_coupon>button{
+    margin-top: 10px;
+    color: white;
+    background-color: rgb(5, 139, 201);
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+@media screen and (max-width:1350px){
+    .profile{
+        display: none;
+    }
+}

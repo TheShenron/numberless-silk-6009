@@ -21,6 +21,7 @@ import Login from '../pages/Login';
 // Admin 
 import Dashboard from '../pages/Dashboard';
 import UpdateDetails from '../pages/UpdateDetails';
+import Restaurant from '../components/Restaurant';
 
 function AllRoutes(props) {
     return (
@@ -59,7 +60,7 @@ function AllRoutes(props) {
             
             <Route path='/login' element={<Login/>}/>
             <Route path='*' element={<ErrorPage/>}/>
-
+            <Route path='deals/restaurant/:id' element={<Restaurant/>}/>
         </Routes>
     );
 }

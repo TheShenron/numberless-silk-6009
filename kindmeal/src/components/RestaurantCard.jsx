@@ -1,11 +1,14 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 import styles from '../styles/RestaurantCard.module.css'
 
 const RestaurantCard = ({restaurant}) => {
   return (
     <div className={styles.card}>
       <div className={styles.mealimage}>
-        <img src={restaurant.img} alt="meal"/>
+        <Link to={`restaurant/${restaurant.id}`}>
+          <img src={restaurant.img} alt="meal"/>
+        </Link>
       </div>
       <div className={styles.category}>
         <p>{restaurant.category}</p>
@@ -16,8 +19,9 @@ const RestaurantCard = ({restaurant}) => {
         <div className={styles.couponstar}>
           <button>Get FREE Coupon</button>
           <div>
-            {/* render stars */}
-            stars
+            {
+              
+            }
           </div>
         </div>
       </div>
@@ -30,8 +34,14 @@ const RestaurantCard = ({restaurant}) => {
            <div>{restaurant.contains.alcohol?<img src="https://www.kindmeal.my/images/icon_alcohol.png" alt="" />
            :<img src="https://www.kindmeal.my/images/icon_alcohol_disabled.png" alt="" />}</div>
         </div>
-        <div>discount</div>
-        <div>expiry</div>
+        <div className={styles.discount}>
+          <h6>kindmeal discount</h6>
+          <p>{restaurant.discount}</p>  
+         </div>
+        <div>
+          <p>Expires In</p>
+          {restaurant.expiry}
+        </div>
       </div>
     </div>
   );
