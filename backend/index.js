@@ -15,6 +15,12 @@ const { featureMeal } = require('./routes/featureMeal.route')
 const { restMenue } = require('./routes/restFoodMenu.route')
 const { userfood } = require('./routes/userFoodList.route')
 const { userRecipe } = require('./routes/userFoodRecipe.route')
+const { foodmenu } = require('./routes/getRestFoodMenu.routes')
+const { restaurant } = require('./routes/getRestaurant.route')
+const { user } = require('./routes/getUser.route')
+const { moments } = require('./routes/getUserFoodList.route')
+const { recipe } = require('./routes/getUserRecipe.route')
+
 
 //app use
 app.use(express.json())
@@ -33,6 +39,13 @@ app.use('/featureMeal' , featureMeal)
 app.use('/restMenue' , restMenue)
 app.use('/userfood' , userfood)
 app.use('/userRecipe' , userRecipe)
+
+//get routes
+app.use('/restaurant' , restaurant)
+app.use('/foodmenu' , foodmenu)
+app.use('/user' , user)
+app.use('/moments' , moments)
+app.use('/recipe' , recipe)
 
 
 app.get('/' , (req,res)=>{
