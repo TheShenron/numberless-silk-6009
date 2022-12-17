@@ -19,7 +19,7 @@ import SignupJoinshop from '../components/SignupJoinshop';
 import Login from '../pages/Login';
 
 // Admin 
-import Dashboard from '../pages/Dashboard';
+import Dashboard from '../pages/Admin/Dashboard';
 import UpdateDetails from '../pages/UpdateDetails';
 import Restaurant from '../components/Restaurant';
 
