@@ -4,11 +4,13 @@ const featuredMealSchema = mongoose.Schema({
 
     foodMenuID:{
         type:String,
+        default:"",
         required:true,
     },
     id:{
         type:String,
-        default:''
+        default:'',
+        required:true
     }
 
 })

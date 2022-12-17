@@ -89,7 +89,7 @@ userRecipe.post('/add',
 
 
 //update rest food menu
-userRecipe.post('/update/:id',
+userRecipe.put('/update/:id',
     tokenInHeader,
     (req,res,next)=>{RcheckField(req,res,next,userRecipeData)},
     async (req, res) => {
@@ -126,7 +126,7 @@ userRecipe.post('/update/:id',
 
 
 //delete rest food menu
-userRecipe.post('/delete/:id',
+userRecipe.delete('/delete/:id',
     tokenInHeader,
     async (req, res) => {
 

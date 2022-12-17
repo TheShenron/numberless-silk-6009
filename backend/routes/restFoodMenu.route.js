@@ -91,7 +91,7 @@ const updateRestMenueData  = {
     title:"string",
     description:"string"
 }
-restMenue.post('/update/:id',
+restMenue.put('/update/:id',
     tokenInHeader,
     (req,res,next)=>{RcheckField(req,res,next,updateRestMenueData)},
     async (req, res) => {

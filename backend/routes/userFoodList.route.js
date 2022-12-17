@@ -85,7 +85,7 @@ userfood.post('/add',
 
 
 //update rest food menu
-userfood.post('/update/:id',
+userfood.put('/update/:id',
     tokenInHeader,
     (req,res,next)=>{RcheckField(req,res,next,userFoodData)},
     async (req, res) => {
