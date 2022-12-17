@@ -1,0 +1,39 @@
+.dashboard{
+    display: flex; 
+}
+.dashboardmp{
+    background-color: #15202A;
+    width: 100%;
+    color: white;
+}
+.dashboardch{
+    width: 60%;
+    height: 40%;
+    margin: auto;
+    margin-top: 3.5rem;
+    display: grid;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+    grid-template-columns: repeat(7,1fr);
+}
+
+.dashboardch>div{
+    padding: 15px;
+    height: 100px;
+    border: 1px solid pink;
+    background-color: #15202B;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.dashboardch1{
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+.dashboardch2{
+    grid-column-start: 4;
+    grid-column-end: 7;
+}
+.dashboardch3{
+    grid-column-start: 2;
+    grid-column-end: 6;
+}

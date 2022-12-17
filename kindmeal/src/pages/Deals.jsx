@@ -23,7 +23,6 @@ const Deal = () => {
   }, []);
   return (
     <>
-      <Navbar />
       <div className={styles.mealdeal}>
         <div className={styles.header}>
           <h1>Meat-Free Deals</h1>
