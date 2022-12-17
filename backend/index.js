@@ -13,6 +13,8 @@ const { login } = require("./routes/login.route")
 const { signup } = require('./routes/signup.route')
 const { featureMeal } = require('./routes/featureMeal.route')
 const { restMenue } = require('./routes/restFoodMenu.route')
+const { userfood } = require('./routes/userFoodList.route')
+const { userRecipe } = require('./routes/userFoodRecipe.route')
 
 //app use
 app.use(express.json())
@@ -29,6 +31,8 @@ app.use('/login' , login)
 app.use('/signup' , signup)
 app.use('/featureMeal' , featureMeal)
 app.use('/restMenue' , restMenue)
+app.use('/userfood' , userfood)
+app.use('/userRecipe' , userRecipe)
 
 
 app.get('/' , (req,res)=>{

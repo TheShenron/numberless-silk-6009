@@ -1,9 +1,7 @@
 const mongoose = require('mongoose')
 
 const UserFoodListMenuSchema = mongoose.Schema({
-    image:{
-        img:String,
-    },
+    image:String,
     dateOfCreated:{
         type:Date,
         default: Date.now

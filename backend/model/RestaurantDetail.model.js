@@ -37,6 +37,10 @@ const restaurantDetailSchema = mongoose.Schema({
     about:{
         type:String,
         maxlength:1000
+    },
+    id:{
+        type:String,
+        required: true
     }
 
 })

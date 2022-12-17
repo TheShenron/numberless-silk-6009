@@ -1,9 +1,7 @@
 const mongoose = require('mongoose')
 
 const UserFoodRecipeSchema = mongoose.Schema({
-    title:{
-        img:String,
-    },
+    title:String,
     dateOfCreated:{
         type:Date,
         default: Date.now
@@ -14,7 +12,8 @@ const UserFoodRecipeSchema = mongoose.Schema({
     diet_restriction:String,
     description:String,
     ingredients:String,
-    category:String
+    category:String,
+    id:String
 
 })
 

@@ -2,9 +2,9 @@ const { Router } = require('express')
 const restMenue = Router()
 
 //middlewares
-const { hashpassword, compareHash } = require('../middleware/Hashing')
-const { create_jwt, check_jwt } = require('../middleware/JwtToken')
+const { check_jwt } = require('../middleware/JwtToken')
 const { tokenInHeader } = require('../middleware/CheckToken')
+const { checkField , RcheckField } = require('../middleware/CheckField')
 
 
 //UserModel DB
@@ -27,6 +27,10 @@ restMenue.get('/',
             //geting data from token
             const tokenData = check_jwt(token)
 
+            //checking userType 
+            const userType = await userModel.findById({_id:tokenData.id})
+            if(userType.userType === 'user') return res.send({msg:"Food menue is only for Restaurant" , status:false})
+
             //geting data from rest food menu DB
             const foodList = await restaurantFoodMenuModel.find({ id: tokenData.id })
 
@@ -41,8 +45,14 @@ restMenue.get('/',
 
 
 //add rest food menu
+const addRestMenueData = {
+    image:"string",
+    title:"string",
+    description:"string"
+}
 restMenue.post('/add',
     tokenInHeader,
+    (req,res,next) =>{checkField(req,res,next,addRestMenueData)},
     async (req, res) => {
 
         const token = req.headers['authorization'].split(" ")[1]
@@ -52,6 +62,10 @@ restMenue.post('/add',
             
             //geting data from token
             const tokenData = check_jwt(token)
+
+             //checking userType 
+             const userType = await userModel.findById({_id:tokenData.id})
+             if(userType.userType === 'user') return res.send({msg:"Food menue is only for Restaurant" , status:false})
 
             //adding data in resFoodList...
             bodyData.id = tokenData.id
@@ -72,8 +86,14 @@ restMenue.post('/add',
 
 
 //update rest food menu
+const updateRestMenueData  = {
+    image:"string",
+    title:"string",
+    description:"string"
+}
 restMenue.post('/update/:id',
     tokenInHeader,
+    (req,res,next)=>{RcheckField(req,res,next,updateRestMenueData)},
     async (req, res) => {
 
         const token = req.headers['authorization'].split(" ")[1]
@@ -84,6 +104,10 @@ restMenue.post('/update/:id',
             
             //geting data from token
             const tokenData = check_jwt(token)
+
+             //checking userType 
+             const userType = await userModel.findById({_id:tokenData.id})
+             if(userType.userType === 'user') return res.send({msg:"Food menue is only for Restaurant" , status:false})
 
             //find and update
             const isDone = await restaurantFoodMenuModel.findOneAndUpdate({id:tokenData.id , _id:ID} , bodyData)
@@ -104,7 +128,7 @@ restMenue.post('/update/:id',
 
 
 //delete rest food menu
-restMenue.post('/delete/:id',
+restMenue.delete('/delete/:id',
     tokenInHeader,
     async (req, res) => {
 
@@ -115,6 +139,10 @@ restMenue.post('/delete/:id',
             
             //geting data from token
             const tokenData = check_jwt(token)
+
+              //checking userType 
+              const userType = await userModel.findById({_id:tokenData.id})
+              if(userType.userType === 'user') return res.send({msg:"Food menue is only for Restaurant" , status:false})
 
             //find and update
             const isDone = await restaurantFoodMenuModel.findOneAndDelete({id:tokenData.id , _id:ID})
