@@ -16,8 +16,7 @@ import Recipes from '../pages/Recipes';
 import Signup from '../pages/Signup';
 import SignupJoin from '../components/SignupJoin';
 import SignupJoinshop from '../components/SignupJoinshop';
-import Login from '../pages/Login';
-
+import Login from '../Modal/Login';
 // Admin 
 import Dashboard from '../pages/Admin/Dashboard';
 import UpdateDetails from '../pages/UpdateDetails';

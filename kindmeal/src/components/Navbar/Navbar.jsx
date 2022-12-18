@@ -2,14 +2,45 @@ import React from "react";
 import styles from "./Navbar.module.css";
 import { BsLink45Deg, BsTwitter } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
+
+import { useNavigate } from "react-router-dom";
+import { Tooltip, useDisclosure } from "@chakra-ui/react";
+import SignupModal from "../../Modal/SignupModal";
+import Login from "../../Modal/Login";
+import styled from "styled-components";
+const Option = styled.div`
+  padding: 3px 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  background-color: ${(props) => props.bg};
+  color: ${(props) => props.color};
+  margin: 0 3px;
+  cursor: pointer;
+`;
+
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const {
+    isOpen: isSignupOpen,
+    onOpen: onSignupOpen,
+    onClose: onSignupClose,
+  } = useDisclosure();
+  const {
+    isOpen: isLoginOpen,
+    onOpen: onLoginOpen,
+    onClose: onLoginClose,
+  } = useDisclosure();
   return (
     <div>
       <div className={styles.navbar}>
         <div className={styles.navbar_logo}>
-          <Link to="/"> <img src="/logo-kindmeal.png" alt="logo-kindmeal" /></Link>
+
+          <a href="/"> <img src="/logo-kindmeal.png" alt="logo-kindmeal" /></a>
+
+          {/* <Link to="/"> <img src="/logo-kindmeal.png" alt="logo-kindmeal" /></Link> */}
+
         </div>
         <div className={styles.navbar_social}>
           {/* <BsLink45Deg color="white" />
@@ -17,10 +48,23 @@ const Navbar = () => {
           <BsTwitter color="white" /> */}
         </div>
         <div className={styles.navbar_login}>
+
+          <p>Login</p>
+          <button className={styles.navbar_fb}>Facebook</button>
+          
+          <Option onClick={onLoginOpen}>
+              <button className={styles.navbar_email}>Email</button>
+          </Option>
+           <Login isOpen={isLoginOpen} onClose={onLoginClose} />
+              
+          <Option onClick={onSignupOpen}>Sign Up</Option>
+            <SignupModal isOpen={isSignupOpen} onClose={onSignupClose} />
+
           {/* <p>Login</p> */}
-          <button className={styles.navbar_fb}><Link>Login</Link></button>
-          <button className={styles.navbar_email}><Link>Signup</Link></button>
+            {/* <button className={styles.navbar_fb}><Link>Login</Link></button> */}
+            {/* <button className={styles.navbar_email}><Link>Signup</Link></button> */}
           {/* <p>Sign up</p> */}
+
         </div>
       </div>
       <div className={styles.navigate_div}>

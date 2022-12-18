@@ -18,7 +18,7 @@ const Signupdivimg = styled.div`
 `;
 const Divimg = styled.div`
   width: 100%;
-  height: 190px;
+  height: 160px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,7 +31,7 @@ const Divimg = styled.div`
 `;
 const Imgdiv = styled.div`
   width: 75%;
-  height: 160px;
+  height: 140px;
   margin: 0px 8px;
 `;
 const Img = styled.img`
@@ -94,7 +94,7 @@ const SignupModal = ({ isOpen, onClose }) => {
                 </p>
               </Content>
             </Divimg>
-            <Divimg>
+            <Divimg onClick={() => navigate("/sign")}>
               <Imgdiv>
                 <Img
                   src="https://www.kindmeal.my/images/join_shop.png"
