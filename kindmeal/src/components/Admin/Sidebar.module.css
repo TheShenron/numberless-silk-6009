@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+.container{
+    display: flex;
+}
+.sidebar{
+    background: #000;
+    color: #fff;
+    height: 100vh;
+}
+.top_section{
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+}
+.logo{
+    font-size: 30px;
+}
+.bars{
+    display: flex;
+    margin-left: 25px;
+    font-size: 25px;
+}
+.link{
+    display: flex;
+    color: #fff;
+    padding: 15px 25px;
+    gap: 15px;
+    align-items: center;
+    transition: all 0.4s;
+}
+.link:hover{
+    background-color: lightskyblue;
+    color: black;
+    transition: all 0.4s;
+}
+.active{
+    background-color: lightskyblue;
+    color: #000;
+}

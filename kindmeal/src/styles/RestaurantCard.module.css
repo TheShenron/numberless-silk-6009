@@ -1,0 +1,69 @@
+.card{
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 10px;
+}
+.mealimage{
+    width: 100%;
+}
+.category{
+    background-color: rgba(48, 42, 42, 0.5);
+    color: white;
+    margin: auto;
+    text-align: center;
+    opacity: 0.8;
+}
+.category>p{
+    padding: 10px 0px;
+    font-size: 20px;
+}
+.couponstar{
+    display: flex;
+    justify-content: space-between
+}
+.couponstar>button{
+    background-color: red;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+.itemothers{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-top: 1px solid rgb(185, 178, 178);
+}
+.contain{
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+}
+.itemdetails{
+    margin-top: 10px;
+    padding: 10px 15px;
+}
+.itemdetails>h4{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.itemdetails>h4>span{
+    font-size: 14px;
+    color: rgb(131, 128, 128);
+}
+.discount{
+    text-align: center;
+}
+.discount>h6{
+    font-size: 15px;
+}
+.discount>p{
+    font-size: 20px;
+    font-weight: 600;
+    color: red;
+}
+.discount+div{
+    font-size: 20px;
+}
+.discount+div>p{
+    font-size: 15px;
+}

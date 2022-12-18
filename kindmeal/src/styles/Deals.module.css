@@ -1,0 +1,87 @@
+.mealdeal{
+    width: 70%;
+    margin: auto;
+    margin-top: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.restaurantcard{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 40px;
+    margin-top: 40px;
+}
+.header{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.header>h1{
+    font-size: 30px;
+    font-weight: 600;
+}
+.header>p{
+    font-size: 30px;
+    font-weight: 400;
+    color: gray;
+}
+.searchmethod{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.searchmethod>select,input{
+     border: 1px solid grey;
+     padding: 4px 7px;
+     border-radius: 3px;
+}
+.searchmethod>select,input:hover{
+    cursor: pointer;
+}
+.serchbutton{
+    background-color: rgb(214, 53, 53);
+    padding: 4px 7px;
+    color: white;
+    border-radius: 5px;
+}
+.serchbutton:hover{
+    background-color: rgb(216, 32, 32);
+}
+.serchbutton+button{
+    background-color:rgb(11, 99, 11);
+    padding: 4px 7px;
+    color: white;
+    border-radius: 5px;
+}
+.serchbutton+button:hover{
+    background-color: green;
+}
+.searchmethod+div{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
+}
+
+@media screen and (max-width:950px) {
+    .searchmethod{
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .header{
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    
+}
+
+@media screen and (max-width:800px){
+    .restaurantcard{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-gap: 40px;
+        margin-top: 40px;
+    }
+}
