@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const restMenue = Router()
+const restMenu = Router()
 
 //middlewares
 const { check_jwt } = require('../middleware/JwtToken')
@@ -16,7 +16,7 @@ const { restaurantFoodMenuModel } = require('../model/RestaurantFoodMenu.model')
 //routes
 
 //get restaurant food menu list...
-restMenue.get('/',
+restMenu.get('/',
     tokenInHeader,
     async (req, res) => {
 
@@ -50,7 +50,7 @@ const addRestMenueData = {
     title:"string",
     description:"string"
 }
-restMenue.post('/add',
+restMenu.post('/add',
     tokenInHeader,
     (req,res,next) =>{checkField(req,res,next,addRestMenueData)},
     async (req, res) => {
@@ -91,7 +91,7 @@ const updateRestMenueData  = {
     title:"string",
     description:"string"
 }
-restMenue.put('/update/:id',
+restMenu.put('/update/:id',
     tokenInHeader,
     (req,res,next)=>{RcheckField(req,res,next,updateRestMenueData)},
     async (req, res) => {
@@ -128,7 +128,7 @@ restMenue.put('/update/:id',
 
 
 //delete rest food menu
-restMenue.delete('/delete/:id',
+restMenu.delete('/delete/:id',
     tokenInHeader,
     async (req, res) => {
 
@@ -162,4 +162,4 @@ restMenue.delete('/delete/:id',
 
 
 
-module.exports = { restMenue }
+module.exports = { restMenu }
