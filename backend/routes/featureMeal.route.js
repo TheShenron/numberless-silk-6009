@@ -145,7 +145,7 @@ featureMeal.get('/id/:id', async (req, res) => {
 
 
             //finding the userType
-            const user = await userModel.findOne({ _id: tokenData.id })
+            const user = await userModel.findOne({ _id: id })
 
             if (user === null) return res.send({ msg: "Invalide user", status: false })
 

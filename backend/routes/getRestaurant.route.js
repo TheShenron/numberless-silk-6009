@@ -16,7 +16,7 @@ restaurant.get('/', async (req, res) => {
         try {
 
             //geting data from rest food menu DB
-            const List = await restaurantDetailModel.find({ id })
+            const List = await restaurantDetailModel.find(id)
 
             if(List === null) return res.send({msg:"Invalid Id" , status:false})
 

@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const restaurantDetailSchema = mongoose.Schema({
     image:{
         coverIMG:String,
-        avatar:String
+        avatar:String,
+        restaurantIMG:String
     },
     userType:{
         type:String,

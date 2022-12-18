@@ -16,7 +16,7 @@ moments.get('/', async (req, res) => {
         try {
 
             //geting data from rest food menu DB
-            const foodList = await UserFoodListMenuModel.find({ id })
+            const foodList = await UserFoodListMenuModel.find(id )
 
             res.send({ msg: "success", data: foodList })
 

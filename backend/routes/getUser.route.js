@@ -16,7 +16,7 @@ user.get('/', async (req, res) => {
         try {
 
             //geting data from rest food menu DB
-            const List = await userDetailModel.find({ id })
+            const List = await userDetailModel.find(id)
 
             if(List === null) return res.send({msg:"Invalid Id" , status:false})
 

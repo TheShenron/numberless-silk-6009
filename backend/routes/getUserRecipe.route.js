@@ -15,7 +15,7 @@ recipe.get('/', async (req, res) => {
         try {
 
             //geting data from rest food menu DB
-            const foodList = await UserFoodRecipeModel.find({ id })
+            const foodList = await UserFoodRecipeModel.find(id)
 
             res.send({ msg: "success", data: foodList })
 
