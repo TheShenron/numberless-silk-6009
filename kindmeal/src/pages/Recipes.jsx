@@ -7,7 +7,7 @@ function Recipes(props) {
   return (
     <div>
       <Recipiehead />
-      <RecipeMid />
+      {/* <RecipeMid /> */}
       <RecipieContainer />
     </div>
   );
