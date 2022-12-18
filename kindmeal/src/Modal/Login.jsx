@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa";
 import { Button, Center, Text } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { login } from "../Redux/AuthReducer/action";
+// import { login } from "../Redux/AuthReducer/action";
 
 const Logo = styled.img`
   @media only screen and (max-width: 1150px) {
@@ -36,7 +36,7 @@ const Login = ({ isOpen, onClose }) => {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(cred))
+    dispatch((cred))
       .then((r) => {
         toast({
           title: "Login Success.",
