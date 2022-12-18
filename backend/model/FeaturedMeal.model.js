@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const featuredMealSchema = mongoose.Schema({
 
-    foodMenuID:{
+    foodMenuID:{ 
         type:String,
         default:"",
         required:true,

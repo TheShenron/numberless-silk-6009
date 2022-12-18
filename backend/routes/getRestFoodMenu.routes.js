@@ -17,7 +17,7 @@ foodmenu.get('/', async (req, res) => {
         try {
 
             //geting data from rest food menu DB
-            const foodList = await restaurantFoodMenuModel.find({ id })
+            const foodList = await restaurantFoodMenuModel.find(id)
 
             res.send({ msg: "success", data: foodList })
 

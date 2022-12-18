@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useSelector } from 'react-redux'
 import { Navigate , useLocation } from 'react-router-dom'
-import { User_Login_Request } from '../Redux/AuthReducer/reducer'
+import { User_Login_Request } from '../redux/AuthReducer/reducer'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react';
 function PrivateRoute({children}) {

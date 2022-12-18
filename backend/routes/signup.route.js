@@ -3,7 +3,7 @@ const signup = Router()
 
 
 //middlewares
-const { hashpassword  } = require('../middleware/Hashing')
+const { hashpassword } = require('../middleware/Hashing')
 const { create_jwt } = require('../middleware/JwtToken')
 
 //UserModel DB
@@ -17,16 +17,17 @@ const { restaurantDetailModel } = require('../model/RestaurantDetail.model')
 //signin with student ID and All detail are feched from student DB
 signup.post('/', async (req, res) => {
 
-        const email = req.body.email
-        const password = req.body.password
-        const avatar = req.body.avatar
-        const userData = req.body
+    const email = req.body.email
+    const password = req.body.password
+    const avatar = req.body.avatar
+    const userData = req.body
 
-        console.log(userData)
+
+    try {
 
         //checking is number wuth same email is register or not
-        const isPresent = await userModel.findOne({ email:email })
-        if (isPresent !== null) return res.send({ msg: "Email already registered!" , status: false})
+        const isPresent = await userModel.findOne({ email: email })
+        if (isPresent !== null) return res.send({ msg: "Email already registered!", status: false })
 
         //opt send and get....
         const isCorrect = true
@@ -39,12 +40,12 @@ signup.post('/', async (req, res) => {
         //check after opt
         const create_User = new userModel({
             email,
-            password:hash,
+            password: hash,
             avatar,
-            userType:userData.userType
+            userType: userData.userType
         })
 
-    
+
         let resp = await create_User.save()
 
         //adding data in userDetail DB..
@@ -52,20 +53,27 @@ signup.post('/', async (req, res) => {
 
         userData.details.id = resp._id
 
-        if(userType === 'user'){
+        if (userType === 'user') {
             const addData = new userDetailModel(userData.details)
             await addData.save()
-        }else{
+        } else {
             const addData = new restaurantDetailModel(userData.details)
             await addData.save()
         }
 
         //creating token
-        const token = create_jwt({ id: resp._id, email: resp.email , userType:resp.userType})
+        const token = create_jwt({ id: resp._id, email: resp.email, userType: resp.userType })
 
-        res.send({ msg: "signup successfully", token , status: true , detail:{type:resp.userType , email:resp.email , doc:resp.dateOfCreated} })
+        res.send({ msg: "signup successfully", token, status: true, detail: { type: resp.userType, email: resp.email, doc: resp.dateOfCreated } })
 
-    })
+
+    } catch (error) {
+        console.log(error)
+        res.send({ msg: "Error while signup", status: false })
+    }
+
+    
+})
 
 
 
