@@ -21,6 +21,9 @@ const { user } = require('./routes/getUser.route')
 const { moments } = require('./routes/getUserFoodList.route')
 const { recipe } = require('./routes/getUserRecipe.route')
 
+//comment system
+const { Rcomment } = require('./routes/Rcomment.route')
+
 
 //app use
 app.use(express.json())
@@ -39,6 +42,9 @@ app.use('/featureMeal' , featureMeal)
 app.use('/restMenu' , restMenu)
 app.use('/userfood' , userfood)
 app.use('/userRecipe' , userRecipe)
+
+//comment
+app.use('/rcomment' , Rcomment)
 
 //get routes
 app.use('/restaurant' , restaurant)

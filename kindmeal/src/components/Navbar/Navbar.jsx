@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./Navbar.module.css";
 import { BsLink45Deg, BsTwitter } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 
 import { useNavigate } from "react-router-dom";
 import { Tooltip, useDisclosure } from "@chakra-ui/react";
@@ -18,7 +20,6 @@ const Option = styled.div`
   cursor: pointer;
 `;
 
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -54,11 +55,13 @@ const Navbar = () => {
           
           <Option onClick={onLoginOpen}>
               <button className={styles.navbar_email}>Email</button>
+              <Login isOpen={isLoginOpen} onClose={onLoginClose} />
           </Option>
-           <Login isOpen={isLoginOpen} onClose={onLoginClose} />
               
-          <Option onClick={onSignupOpen}>Sign Up</Option>
+          <Option onClick={onSignupOpen}>
+            <button className={styles.navbar_email}>Signup</button>
             <SignupModal isOpen={isSignupOpen} onClose={onSignupClose} />
+          </Option>
 
           {/* <p>Login</p> */}
             {/* <button className={styles.navbar_fb}><Link>Login</Link></button> */}
