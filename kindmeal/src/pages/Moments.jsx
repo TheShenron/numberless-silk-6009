@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Avatar, Box, Button, Card, CardBody, CardFooter, CardHeader, Center, Divider, Flex, Heading, Icon, IconButton, Image, Input, Select, Spacer, Stack, Text } from '@chakra-ui/react'
 
@@ -7,6 +7,7 @@ import { FcNext } from 'react-icons/fc'
 import { FcLike } from 'react-icons/fc'
 import { FcMultipleCameras } from 'react-icons/fc'
 import { FcSms } from 'react-icons/fc'
+import axios from 'axios'
 
 
 const Cards = () => {
@@ -84,6 +85,28 @@ const Pagination = (len)=>{
 
 
 function Moments(props) {
+
+    const [moments , setMoment] = useState([])
+
+    useEffect(()=>{
+
+        // axios.get('https://sore-gold-bighorn-sheep-gear.cyclic.app/moments')
+        // .then((d)=>{
+        //     console.log(d)
+        // })
+        // .catch((err)=>{
+        //     console.log(err)
+        // })
+        // .finally(()=>{
+        //     console.log("Geting moments done")
+        // })
+        
+
+    } , [])
+
+
+
+
     return (
         <>
             <Box bg='#F0F0F0'>
