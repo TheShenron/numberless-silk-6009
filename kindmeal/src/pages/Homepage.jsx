@@ -1,11 +1,34 @@
 import { Image } from "@chakra-ui/image";
 import { Box, Center, Flex, Grid, Spacer, Text } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import HomeContent from "../components/HomeContent";
+import axios from "axios"
+import { useState } from "react";
+
+
 
 function Homepage() {
+  const [moments,setMomemts] = useState([]);
+  const [recipes,setRecipes] = useState([]);
+
+  const getMoments=()=>{
+    axios.get("https://sore-gold-bighorn-sheep-gear.cyclic.app/moments")
+    .then((res)=>setMomemts(res?.data?.data))
+  }
+
+  const getRecipes=()=>{
+    axios.get("https://sore-gold-bighorn-sheep-gear.cyclic.app/recipe")
+    .then((res)=>setRecipes(res?.data?.data))
+  }
+  
+
+  useEffect(()=>{
+    getMoments();
+    getRecipes();
+  },[])
+
   return (
     <div>
       <Box
@@ -68,7 +91,7 @@ function Homepage() {
         </Box>
         <br />
         <br />
-        {/* latest news and videos */}
+        {/* yumilicious moments */}
         <Box
           boxShadow="xs"
           maxW={{ base: "100%", sm: "100%", lg: "100%" }}
@@ -76,7 +99,7 @@ function Homepage() {
         >
           <Flex w="98%" m="auto">
             <Text fontSize={{ base: "sm", sm: "sm", lg: "2xl" }}>
-              Latest News & Videos
+            <Link to="/moments"> Yummylicious Moments</Link>
             </Text>
             <Spacer />
             <Flex gap={{ base: "1", sm: "4" }}>
@@ -84,24 +107,60 @@ function Homepage() {
                 fontSize={{ base: "xs", sm: "xs", md: "md", lg: "md" }}
                 color={"blue.600"}
               >
-                <Link> -Save Lives with Your Blog </Link>
+                <Link> -Secret Recipes </Link>
               </Text>
               <Text
                 fontSize={{ base: "xs", sm: "xs", md: "md", lg: "md" }}
                 color={"blue.600"}
               >
-                <Link> -News & Articles </Link>
+                <Link> - Member Hot Picks  </Link>
               </Text>
               <Text
                 fontSize={{ base: "xs", sm: "xs", md: "md", lg: "md" }}
                 color={"blue.600"}
               >
-                <Link> - Follow Our Facebook </Link>
+                <Link> -  Photo Moments </Link>
               </Text>
             </Flex>
           </Flex>
-          <HomeContent />
+          <HomeContent data={moments}/>
         </Box>
+        <br />
+        {/* Discover Recipes */}
+        <Box
+          boxShadow="xs"
+          maxW={{ base: "100%", sm: "100%", lg: "100%" }}
+          p={4}
+        >
+          <Flex w="98%" m="auto">
+            <Text fontSize={{ base: "sm", sm: "sm", lg: "2xl" }}>
+            <Link to="/moments"> Discover Recipes</Link>
+            </Text>
+            <Spacer />
+            <Flex gap={{ base: "1", sm: "4" }}>
+              <Text
+                fontSize={{ base: "xs", sm: "xs", md: "md", lg: "md" }}
+                color={"blue.600"}
+              >
+                <Link> -Secret Recipes </Link>
+              </Text>
+              <Text
+                fontSize={{ base: "xs", sm: "xs", md: "md", lg: "md" }}
+                color={"blue.600"}
+              >
+                <Link> - Restaurant Menu  </Link>
+              </Text>
+              <Text
+                fontSize={{ base: "xs", sm: "xs", md: "md", lg: "md" }}
+                color={"blue.600"}
+              >
+                <Link> -  Photo Moments </Link>
+              </Text>
+            </Flex>
+          </Flex>
+          <HomeContent data={recipes}/>
+        </Box>
+        <br />
       </Box>
       <br />
       {/* bottom part */}
