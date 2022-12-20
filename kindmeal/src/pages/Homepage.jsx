@@ -168,18 +168,17 @@ function Homepage() {
         <Box maxW={{ base: "100%", sm: "100%", lg: "70%" }} m="auto" p={10}>
           <Center>
             <Text
-              fontSize={{ base: "sm", sm: "sm", md: "2xl", lg: "3xl" }}
-              color={"gray.700"}
+              fontSize={['xl']}
+              color={"gray.400"}
             >
               Introducing Malaysia's Pioneering Meat-Free Lifestyle Platform
             </Text>
           </Center>
           <br />
-          <Flex justifyContent={"center"} alignItems="center" gap={5}>
-            <Text>Brought to you by</Text>
+          <Flex justifyContent={["start" , "center"]} gap={5} flexWrap='wrap'>
+            <Text fontSize={'xl'} color='gray.400'>Brought to you by</Text>
             <Image
-              w="300px"
-              h="60px"
+              w={['50%' , '30%' ,]}
               src="https://www.kindmeal.my/images/logo-petfinder-v2.png"
               alt="logo-petfinder"
             />
@@ -188,7 +187,7 @@ function Homepage() {
           <Center>
             <Text
               color={"gray.400"}
-              fontSize={{ base: "sm", sm: "sm", md: "xl", lg: "xl" }}
+              fontSize={'xl'}
             >
               Instant coupon & dining. No upfront coupon payment, booking or
               printing.
@@ -196,102 +195,89 @@ function Homepage() {
           </Center>
         </Box>
         {/* deals and offers  */}
-        <Box maxW={{ base: "90%", sm: "90%", md: "90%", lg: "70%" }} m="auto">
-          <Grid templateColumns={{base:"repeat(2,1fr)",sm:"repeat(2,1fr)",md:"repeat(4,1fr)",lg:"repeat(4,1fr)"}} gap={4}>
-            <Box boxShadow="dark-lg" p={5} borderRadius="10px">
+        <Box w={['90%' , '80%']} m="auto" py={['20px' , '30px']}>
+          <Flex gap={[ '10px','20px','30px']} flexWrap='wrap'>
+            <Box border='1px solid' borderColor='gray.100' p={5} borderRadius="5px" w={[ '100%' , '47%' , '47%' , '23%']} flexGrow='1'>
               <Center>
-                {" "}
                 <Image
                   src="https://www.kindmeal.my/images/intro_deal.png"
                   mb="4px"
                 />
               </Center>
               <Center>
-                {" "}
                 <Text fontSize={{ base: "sm", sm: "sm", md: "xl", lg: "xl" }}>
                   Get Great Deals
-                </Text>{" "}
+                </Text>
               </Center>
               <Center>
-                {" "}
-                <Text fontSize="sm">
+                <Text fontSize="sm" textAlign='center'>
                   Show our FREE digital coupons to instantly enjoy exciting
                   deals
-                </Text>{" "}
+                </Text>
               </Center>
             </Box>
-            <Box boxShadow="dark-lg" p={5} borderRadius="10px">
+            <Box border='1px solid' borderColor='gray.100' p={5} borderRadius="5px" w={[ '100%' , '47%' , '47%' , '23%']} flexGrow='1'>
               <Center>
-                {" "}
                 <Image
                   src="	https://www.kindmeal.my/images/intro_kindmoment.png"
                   mb="4px"
                 />
               </Center>
               <Center>
-                {" "}
                 <Text fontSize={{ base: "sm", sm: "sm", md: "xl", lg: "xl" }}>
                   Share KindMoments
-                </Text>{" "}
+                </Text>
               </Center>
               <Center>
-                {" "}
-                <Text fontSize="sm">
+                <Text fontSize="sm" textAlign='center'>
                   Spread the joy by sharing your yummy dining moments
-                </Text>{" "}
+                </Text>
               </Center>
             </Box>
-            <Box boxShadow="dark-lg" p={5} borderRadius="10px">
+            <Box border='1px solid' borderColor='gray.100' p={5} borderRadius="5px" w={[ '100%' , '47%' , '47%' , '23%']} flexGrow='1'>
               <Center>
-                {" "}
                 <Image
                   src="https://www.kindmeal.my/images/intro_menu.png"
                   mb="4px"
                 />
               </Center>
               <Center>
-                {" "}
                 <Text fontSize={{ base: "sm", sm: "sm", md: "xl", lg: "xl" }}>
                   Discover Delicious Food
-                </Text>{" "}
+                </Text>
               </Center>
               <Center>
-                {" "}
-                <Text fontSize="sm">
+         
+                <Text fontSize="sm" textAlign='center'>
                   Explore the latest exquisite offerings and creative menus
-                </Text>{" "}
+                </Text>
               </Center>
             </Box>
-            <Box boxShadow="dark-lg" p={5} borderRadius="10px">
+            <Box border='1px solid' borderColor='gray.100' p={5} borderRadius="5px" w={[ '100%' , '47%' , '47%' , '23%']} flexGrow='1'>
               <Center>
-                {" "}
                 <Image
                   src="https://www.kindmeal.my/images/intro_friends.png"
                   mb="4px"
                 />
               </Center>
               <Center>
-                {" "}
                 <Text fontSize={{ base: "sm", sm: "sm", md: "xl", lg: "xl" }}>
                   Meet Food Lovers
-                </Text>{" "}
+                </Text>
               </Center>
               <Center>
-                {" "}
-                <Text fontSize="sm">
+                <Text fontSize="sm" textAlign='center'>
                   Make new, compassionate friends and share great food tips
-                </Text>{" "}
+                </Text>
               </Center>
             </Box>
-          </Grid>
+          </Flex>
         </Box>
-        <br />
-        <br />
         {/* another info */}
-        <Box maxW={{ base: "100%", sm: "100%", md: "70%", lg: "70%" }} m="auto">
+        <Box maxW={['90%']} m="auto" py={['10px','20px']}>
           <Center>
             <Text
-              fontSize={{ base: "sm", sm: "sm", md: "xl", lg: "xl" }}
+              fontSize={['md' , 'md' , 'xl']}
               color={"gray.500"}
             >
               Any restaurant or cafe can join KindMeal, vegetarian or not, as
@@ -300,8 +286,8 @@ function Homepage() {
           </Center>
           <Center>
             <Text
-              fontSize={{ base: "sm", sm: "sm", md: "xl", lg: "xl" }}
-              color={"gray.500"}
+               fontSize={['md' , 'md' , 'xl']}
+               color={"gray.500"}
             >
               Enjoy a great meat-free dining experience. Easily save animal
               lives, health, environment and money now!
@@ -309,13 +295,13 @@ function Homepage() {
           </Center>
         </Box>
         {/* join button */}
-        <Flex justify={"center"} p="100px">
+        <Flex justify={"center"} p={[ '30px',"50px"]}>
           <Button colorScheme="red" w="451px" h="90px" bgColor="red">
-            <Text fontSize="2xl">Join Kindmeal Now</Text>
+            <Text fontSize={[ '2xl',"4xl"]} fontWeight='bold'> Join Kindmeal Now</Text>
           </Button>
         </Flex>
-        <Center> <Text fontSize="2xl" color={"gray.500"}>Featured On</Text></Center>
-        <Center><Image src="https://www.kindmeal.my/images/media-feature2.png"/></Center>
+        <Center> <Text fontSize="3xl" color={"gray.500"} fontWeight='400' py={['10px','20px']}>Featured On</Text></Center>
+        <Center><Image src="https://www.kindmeal.my/images/media-feature2.png" pb={['20px','50px']}/></Center>
         <Box bgColor="gray.300">
           <Center><Image src="https://www.kindmeal.my/images/banner_whykindmeal.png"/></Center>
         </Box>

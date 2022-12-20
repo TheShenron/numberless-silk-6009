@@ -6,7 +6,7 @@ const favicon = 'https://www.kindmeal.my/images/logo-kindmeal.png'
 
 function Navbar(props) {
   return (
-    <Box position='fixed' width='100%' backgroundColor='white'>
+    <Box position='' width='100%' backgroundColor='white'>
 
       <Box shadow='sm'>
 
