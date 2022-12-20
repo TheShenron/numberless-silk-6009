@@ -1,89 +1,67 @@
-import React from "react";
-import styles from "./Navbar.module.css";
-import { BsLink45Deg, BsTwitter } from "react-icons/bs";
-import { FaFacebook } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Avatar, Box, Flex, Heading, Image, Link, Spacer } from "@chakra-ui/react";
+import { NavLink } from 'react-router-dom';
+import Drower from './Drower';
+const favicon = 'https://www.kindmeal.my/images/logo-kindmeal.png'
 
-
-import { useNavigate } from "react-router-dom";
-import { Tooltip, useDisclosure } from "@chakra-ui/react";
-import SignupModal from "../../Modal/SignupModal";
-import Login from "../../Modal/Login";
-import styled from "styled-components";
-const Option = styled.div`
-  padding: 3px 5px;
-  border-radius: 5px;
-  font-size: 12px;
-  background-color: ${(props) => props.bg};
-  color: ${(props) => props.color};
-  margin: 0 3px;
-  cursor: pointer;
-`;
-
-
-const Navbar = () => {
-  const navigate = useNavigate();
-  const {
-    isOpen: isSignupOpen,
-    onOpen: onSignupOpen,
-    onClose: onSignupClose,
-  } = useDisclosure();
-  const {
-    isOpen: isLoginOpen,
-    onOpen: onLoginOpen,
-    onClose: onLoginClose,
-  } = useDisclosure();
+function Navbar(props) {
   return (
-    <div>
-      <div className={styles.navbar}>
-        <div className={styles.navbar_logo}>
+    <Box position='fixed' width='100%' backgroundColor='white'>
 
-          <a href="/"> <img src="/logo-kindmeal.png" alt="logo-kindmeal" /></a>
+      <Box shadow='sm'>
 
-          {/* <Link to="/"> <img src="/logo-kindmeal.png" alt="logo-kindmeal" /></Link> */}
+        <Flex alignItems='center' gap='2' py={['7px', '10px', '13px']} w={['95%', '95%', '80%', '80%']} m='auto' >
 
-        </div>
-        <div className={styles.navbar_social}>
-          {/* <BsLink45Deg color="white" />
-          <FaFacebook color="white" />
-          <BsTwitter color="white" /> */}
-        </div>
-        <div className={styles.navbar_login}>
+          <Flex alignItems='center' gap={'10px'}>
+            <Image src={favicon} alt='' width='250px' />
+          </Flex>
 
-          <p>Login</p>
-          <button className={styles.navbar_fb}>Facebook</button>
-          
-          <Option onClick={onLoginOpen}>
-              <button className={styles.navbar_email}>Email</button>
-              <Login isOpen={isLoginOpen} onClose={onLoginClose} />
-          </Option>
-              
-          <Option onClick={onSignupOpen}>
-            <button className={styles.navbar_email}>Signup</button>
-            <SignupModal isOpen={isSignupOpen} onClose={onSignupClose} />
-          </Option>
+          <Spacer />
 
-          {/* <p>Login</p> */}
-            {/* <button className={styles.navbar_fb}><Link>Login</Link></button> */}
-            {/* <button className={styles.navbar_email}><Link>Signup</Link></button> */}
-          {/* <p>Sign up</p> */}
+          <Flex alignItems='center' gap={['20px', '30px']} fontWeight='bold' pr={['0px', '0xp', '5px', '20px']} display={['none', 'none', 'flex']}>
 
-        </div>
-      </div>
-      <div className={styles.navigate_div}>
-        <div className={styles.navigate}>
-           <div> <Link to="/"> Home</Link></div>
-           <div> <Link to="/deals"> MealDeal</Link></div>
-           <div> <Link to="/moments"> KindMoments</Link></div>
-           <div> <Link to="/recipes"> Recipes</Link></div>
-           <div> <Link to="/"> Directory</Link></div>
-           <div> <Link to="/"> Article</Link></div>
-           <div> <Link to="/"> Mobile App</Link></div>
-           <div> <Link to="/"> Help</Link></div>
-        </div>
-      </div>
-    </div>
+            <Link as={NavLink} to='/user' style={{ textDecoration: 'none' }}>
+              <Avatar src='#' size='md' bg='gray.200'> </Avatar>
+            </Link>
+
+          </Flex>
+
+
+          <Drower />
+
+
+        </Flex>
+
+
+      </Box>
+
+      <Box bg='green.400'>
+
+        <Flex
+          alignItems='center'
+          justifyContent='space-between'
+          w={['95%', '95%', '95%', '80%']}
+          m='auto'
+          display={['none', 'none', 'flex']}
+          fontSize={['xl']}
+          color='white'>
+
+          <Link as={NavLink} to='/' _hover={{textDecoration:'none' , backgroundColor:'green.500'}} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Home</Link>
+          <Link as={NavLink} to='/deals' _hover={{textDecoration:'none' , backgroundColor:'green.500'}} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Meal Deals</Link>
+          <Link as={NavLink} to='/moments' _hover={{textDecoration:'none' , backgroundColor:'green.500'}} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Kind Moments</Link>
+          <Link as={NavLink} to='/recipes' _hover={{textDecoration:'none' , backgroundColor:'green.500'}} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Recipes</Link>
+          <Link as={NavLink} to='/directory' _hover={{textDecoration:'none' , backgroundColor:'green.500'}} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Directory</Link>
+          <Link as={NavLink} to='/article' _hover={{textDecoration:'none' , backgroundColor:'green.500'}} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Articles</Link>
+          <Link as={NavLink} to='/mobile' _hover={{textDecoration:'none' , backgroundColor:'green.500'}} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Mobile App</Link>
+          <Link as={NavLink} to='/help' _hover={{textDecoration:'none' , backgroundColor:'green.500'}} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'> Help </Link>
+
+        </Flex>
+
+      </Box>
+
+    </Box>
+
   );
-};
+}
 
 export default Navbar;
