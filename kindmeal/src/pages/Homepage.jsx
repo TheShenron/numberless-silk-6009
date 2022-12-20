@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import HomeContent from "../components/HomeContent";
 import axios from "axios"
 import { useState } from "react";
 
@@ -10,15 +9,22 @@ import {
   Image,
   Text,
   Spacer,
-  Grid,
   Flex,
   Box,
+  Card,
+  CardHeader,
+  Avatar,
+  Heading,
+  IconButton,
+  CardBody,
+  UnorderedList,
+  ListItem,
 } from '@chakra-ui/react';
 
 
-function Myslider(){
+function Myslider() {
 
-  const [indexCount , setindexCount] = useState(0)
+  const [indexCount, setindexCount] = useState(0)
 
   const imgArr = [
     "https://www.kindmeal.my/photos/deal/6/670-4180-m.jpg",
@@ -36,34 +42,34 @@ function Myslider(){
   ]
 
 
-  useEffect(()=>{
-    let timer = setInterval(()=>{
-      setindexCount(pre=>{
-        if(pre === imgArr.length - 1){
+  useEffect(() => {
+    let timer = setInterval(() => {
+      setindexCount(pre => {
+        if (pre === imgArr.length - 1) {
           return pre = 0
         }
-        return pre+1
+        return pre + 1
       })
-    } , 2000)
+    }, 2000)
 
-    return ()=>{
+    return () => {
       clearInterval(timer)
     }
 
-  } , [])
+  }, [])
 
 
   return (
-    <Box height={[ '200px'  ,'300px' , '300px' ,'370px']} width={['100%' , "100%" , "90%" ,"80%"]} m='auto'>
+    <Box height={['200px', '300px', '300px', '370px']} width={['100%', "100%", "90%", "80%"]} m='auto'>
 
       <Flex height={'100%'}>
-        <Image width={[ '100%','100%','70%','70%']} height='100%' src={imgArr[indexCount]} />
-        <Image width={['30%']} display={['none' , 'none' , 'block' , 'block']} src={Owner[indexCount]} />
+        <Image width={['100%', '100%', '70%', '70%']} height='100%' src={imgArr[indexCount]} />
+        <Image width={['30%']} display={['none', 'none', 'block', 'block']} src={Owner[indexCount]} />
       </Flex>
 
-      <Flex  border='1px' borderColor='gray.200' gap={['10px']} alignItems={['center']} p={[ '5px','10px', '20px']} overflow={'scroll'}>
-        {imgArr.map((el , ind)=>{
-          return <Image width={['100%']} maxW={['150px']} height={['60px' , '80px' ,'100px']} src={el} opacity={indexCount === ind ? 1 : .5} />
+      <Flex border='1px' borderColor='gray.200' gap={['10px']} alignItems={['center']} p={['5px', '10px', '20px']} overflow={'scroll'} shadow={'md'}>
+        {imgArr.map((el, ind) => {
+          return <Image key={ind+"subIMG"} width={['100%']} maxW={['150px']} height={['60px', '80px', '100px']} src={el} opacity={indexCount === ind ? 1 : .5} />
         })}
       </Flex>
 
@@ -72,170 +78,80 @@ function Myslider(){
 }
 
 
+const Cards = ({img}) => {
+
+  return (
+    <>
+      <Card shadow={'none'} w={['100%', '48%', '31%', '18%']} maxW={['100%', '50%', '35%', '20%']} flexGrow='1'>
+
+        <Image
+          height={['200px']}
+          borderRadius={['5px']}
+          objectFit='cover'
+          src={img}
+          alt='Chakra UI'
+        />
+
+        <CardBody p='2'>
+          <Text fontSize={['xs']} py='0'>
+            With Chakra UI, I wanted to sync the speed
+          </Text>
+        </CardBody>
+
+      </Card>
+    </>
+  )
+}
+
+
 function Homepage() {
 
-  const [moments, setMomemts] = useState([]);
-  const [recipes, setRecipes] = useState([]);
-
-  const getMoments = () => {
-    axios.get("https://sore-gold-bighorn-sheep-gear.cyclic.app/moments")
-      .then((res) => setMomemts(res?.data?.data))
-  }
-
-  const getRecipes = () => {
-    axios.get("https://sore-gold-bighorn-sheep-gear.cyclic.app/recipe")
-      .then((res) => setRecipes(res?.data?.data))
-  }
-
-
-  useEffect(() => {
-    getMoments();
-    getRecipes();
-  }, [])
-
+  const cardList = [
+    "https://www.kindmeal.my/photos/moment/24/24787-48275-s.jpg",
+    "https://www.kindmeal.my/photos/moment/24/24786-48272-s.jpg",
+    "https://www.kindmeal.my/photos/moment/24/24785-48267-s.jpg",
+    "https://www.kindmeal.my/photos/moment/24/24784-48262-s.jpg",
+    "https://www.kindmeal.my/photos/moment/24/24781-48255-s.jpg"
+  ]
 
 
   return (
     <>
 
+      <Myslider />
 
-    <Myslider />
+      <Box style={{ marginTop: "200px" }}>
 
-      <div style={{marginTop:"200px"}}>
-        <Box
-          maxW={{ base: "90%", sm: "70%", lg: "70%" }}
-          m={"auto"}
-          cursor={"pointer"}
-        >
-          <Box boxShadow="xs">
-            <Grid templateColumns="70% 30%">
-              <Image
-                w="100%"
-                h="100%"
-                src="https://www.kindmeal.my/photos/deal/6/670-4180-m.jpg"
-                alt="deal-image"
-                objectFit="full"
-              />
-              <Image
-                w="100%"
-                h="100%"
-                src="https://www.kindmeal.my/photos/shop/4/467-3019-m.jpg"
-                alt="deal-image"
-                objectFit="full"
-              />
-            </Grid>
-            <Grid
-              templateColumns={{
-                base: "repeat(2, 1fr)",
-                sm: "repeat(3, 1fr)",
-                md: "repeat(6, 1fr)",
-              }}
-              gap={3}
-              p={3}
-              boxShadow="xs"
-            >
-              <Image
-                src="https://www.kindmeal.my/photos/deal/7/725-5225-m.jpg"
-                alt=""
-              />
-              <Image
-                src="https://www.kindmeal.my/photos/deal/5/591-3151-m.jpg"
-                alt=""
-              />
-              <Image
-                src="https://www.kindmeal.my/photos/deal/6/698-4639-m.jpg"
-                alt=""
-              />
-              <Image
-                src="https://www.kindmeal.my/photos/deal/7/718-5090-m.jpg"
-                alt=""
-              />
-              <Image
-                src="https://www.kindmeal.my/photos/deal/6/685-4392-m.jpg"
-                alt=""
-              />
-              <Image
-                src="https://www.kindmeal.my/photos/deal/6/642-3775-m.jpg"
-                alt=""
-              />
-            </Grid>
-          </Box>
-          <br />
-          <br />
-          {/* yumilicious moments */}
-          <Box
-            boxShadow="xs"
-            maxW={{ base: "100%", sm: "100%", lg: "100%" }}
-            p={4}
-          >
-            <Flex w="98%" m="auto">
-              <Text fontSize={{ base: "sm", sm: "sm", lg: "2xl" }}>
-                <Link to="/moments"> Yummylicious Moments</Link>
-              </Text>
-              <Spacer />
-              <Flex gap={{ base: "1", sm: "4" }}>
-                <Text
-                  fontSize={{ base: "xs", sm: "xs", md: "md", lg: "md" }}
-                  color={"blue.600"}
-                >
-                  <Link> -Secret Recipes </Link>
-                </Text>
-                <Text
-                  fontSize={{ base: "xs", sm: "xs", md: "md", lg: "md" }}
-                  color={"blue.600"}
-                >
-                  <Link> - Member Hot Picks  </Link>
-                </Text>
-                <Text
-                  fontSize={{ base: "xs", sm: "xs", md: "md", lg: "md" }}
-                  color={"blue.600"}
-                >
-                  <Link> -  Photo Moments </Link>
-                </Text>
-              </Flex>
+        {/* yumilicious moments */}
+        <Box width={['95%', '95%', '95%', '80%']} m='auto' border='1px' borderColor='gray.100' shadow={'md'} p={[' 10px 20px']}>
+
+          <Flex alignItems={'center'} pb={['10px']} flexWrap='wrap' gap={'10px'}>
+            <Text fontSize={'2xl'}>Yummylicious Moments</Text>
+            <Spacer />
+            <Flex color={'blue'} gap={[ '5px' ,'20px' ,'20px' ,'20px']}>
+              <Link href='https://chakra-ui.com' > Secret Recipes </Link>
+              <Link href='https://chakra-ui.com' >  Member Hot Picks  </Link>
+              <Link href='https://chakra-ui.com' >  Photo Moments </Link>
+
             </Flex>
-            <HomeContent data={moments} />
-          </Box>
-          <br />
-          {/* Discover Recipes */}
-          <Box
-            boxShadow="xs"
-            maxW={{ base: "100%", sm: "100%", lg: "100%" }}
-            p={4}
-          >
-            <Flex w="98%" m="auto">
-              <Text fontSize={{ base: "sm", sm: "sm", lg: "2xl" }}>
-                <Link to="/moments"> Discover Recipes</Link>
-              </Text>
-              <Spacer />
-              <Flex gap={{ base: "1", sm: "4" }}>
-                <Text
-                  fontSize={{ base: "xs", sm: "xs", md: "md", lg: "md" }}
-                  color={"blue.600"}
-                >
-                  <Link> -Secret Recipes </Link>
-                </Text>
-                <Text
-                  fontSize={{ base: "xs", sm: "xs", md: "md", lg: "md" }}
-                  color={"blue.600"}
-                >
-                  <Link> - Restaurant Menu  </Link>
-                </Text>
-                <Text
-                  fontSize={{ base: "xs", sm: "xs", md: "md", lg: "md" }}
-                  color={"blue.600"}
-                >
-                  <Link> -  Photo Moments </Link>
-                </Text>
-              </Flex>
-            </Flex>
-            <HomeContent data={recipes} />
-          </Box>
-          <br />
+          </Flex>
+
+          <Flex m='auto' flexWrap={'wrap'} gap={['20px', '15px', '20px']}>
+
+            {cardList.map((el , ind)=>{
+              return <Cards key={ind+'cardMoment'} img={el} />
+            })}
+
+          </Flex>
+
         </Box>
-        <br />
+
+        {/* Discover Recipes */}
+
+
+
         {/* bottom part */}
-        <Box boxShadow="xs" bgColor={"whiteAlpha.900"}>
+        <Box my={['20px', '50px']} boxShadow="xs" bgColor={"whiteAlpha.900"}>
           <Box maxW={{ base: "100%", sm: "100%", lg: "70%" }} m="auto" p={10}>
             <Center>
               <Text
@@ -265,6 +181,8 @@ function Homepage() {
               </Text>
             </Center>
           </Box>
+
+
           {/* deals and offers  */}
           <Box w={['90%', '80%']} m="auto" py={['20px', '30px']}>
             <Flex gap={['10px', '20px', '30px']} flexWrap='wrap'>
@@ -345,6 +263,8 @@ function Homepage() {
             </Flex>
           </Box>
           {/* another info */}
+
+
           <Box maxW={['90%']} m="auto" py={['10px', '20px']}>
             <Center>
               <Text
@@ -366,6 +286,8 @@ function Homepage() {
             </Center>
           </Box>
           {/* join button */}
+
+
           <Flex justify={"center"} p={['30px', "50px"]}>
             <Button colorScheme="red" w="451px" h="90px" bgColor="red">
               <Text fontSize={['2xl', "4xl"]} fontWeight='bold'> Join Kindmeal Now</Text>
@@ -377,7 +299,7 @@ function Homepage() {
             <Center><Image src="https://www.kindmeal.my/images/banner_whykindmeal.png" /></Center>
           </Box>
         </Box>
-      </div>
+      </Box>
     </>
   );
 }
