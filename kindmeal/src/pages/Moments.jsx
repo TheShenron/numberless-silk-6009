@@ -10,19 +10,24 @@ import { FcSms } from 'react-icons/fc'
 import axios from 'axios'
 
 
-const Cards = () => {
+const Cards = ({ el , uel } ) => {
 
+    const { image, description} = el
+   
+    const {image:{avatar} , name , location} = uel
+
+    
     return (
         <>
-            <Card w={['100%','100%','48%' ,'32%']} maxW={[ '100%','100%','50%','34%']} flexGrow='1'>
+            <Card w={['100%', '100%', '48%', '32%']} maxW={['100%', '100%', '50%', '34%']} flexGrow='1'>
                 <CardHeader p='2'>
                     <Flex spacing='4'>
                         <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
-                            <Avatar name='' bg='gray.200' />
+                            <Avatar name='' bg='gray.200' src={avatar}/>
 
                             <Box>
-                                <Heading size='sm'>Segun Adebayo</Heading>
-                                <Text>Creator, Chakra UI</Text>
+                                <Heading size='sm'>{name}</Heading>
+                                <Text>{location}</Text>
                             </Box>
                         </Flex>
                         <IconButton
@@ -35,24 +40,23 @@ const Cards = () => {
                 </CardHeader>
                 <Image
                     objectFit='cover'
-                    src='https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
+                    src={image}
                     alt='Chakra UI'
                 />
 
                 <Flex justifyContent={['center']} gap={['4']} my={['3']}>
-                    <Flex color='gray' gap='1' alignItems={['center']}> <Icon as={FcLike} fontSize='20px'/> 1 </Flex>
-                    <Flex color='gray' gap='1' alignItems={['center']}> <Icon as={FcMultipleCameras} fontSize='20px'/> 1 </Flex>
-                    <Flex color='gray' gap='1' alignItems={['center']}> <Icon as={FcSms} fontSize='20px'/> 1 </Flex>
-                    
+                    <Flex color='gray' gap='1' alignItems={['center']}> <Icon as={FcLike} fontSize='20px' /> 1 </Flex>
+                    <Flex color='gray' gap='1' alignItems={['center']}> <Icon as={FcMultipleCameras} fontSize='20px' /> 1 </Flex>
+                    <Flex color='gray' gap='1' alignItems={['center']}> <Icon as={FcSms} fontSize='20px' /> 1 </Flex>
+
                 </Flex>
 
                 <CardBody borderBottom='1px' borderColor='gray.100' p='3'>
                     <Text fontSize={['sm']} py='0'>
-                        With Chakra UI, I wanted to sync the speed of development with the speed
-                        of design.83
+                        {description}
                     </Text>
                 </CardBody>
-               
+
                 <CardHeader p='2'>
                     <Flex spacing='4'>
                         <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
@@ -71,12 +75,12 @@ const Cards = () => {
 }
 
 
-const Pagination = (len)=>{
+const Pagination = (len) => {
     const Arr = new Array(len).fill(0)
     const pages = []
 
-    Arr.forEach((_,ind)=> {
-        pages.push(<Button key={ind+"nations"} size='sm'>{ind+1}</Button>)
+    Arr.forEach((_, ind) => {
+        pages.push(<Button key={ind + "nations"} size='sm'>{ind + 1}</Button>)
     })
 
     return pages
@@ -86,23 +90,33 @@ const Pagination = (len)=>{
 
 function Moments(props) {
 
-    const [moments , setMoment] = useState([])
+    const [moments, setMoment] = useState([])
+    const [user, setUser] = useState([])
 
-    useEffect(()=>{
+    useEffect(() => {
 
-        // axios.get('https://sore-gold-bighorn-sheep-gear.cyclic.app/moments')
-        // .then((d)=>{
-        //     console.log(d)
-        // })
-        // .catch((err)=>{
-        //     console.log(err)
-        // })
-        // .finally(()=>{
-        //     console.log("Geting moments done")
-        // })
-        
+        axios.get('https://sore-gold-bighorn-sheep-gear.cyclic.app/moments')
+            .then((d) => {
+                setMoment(d.data.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+            .finally(() => {
+                console.log("Geting moments done")
+            })
 
-    } , [])
+        axios.get('https://sore-gold-bighorn-sheep-gear.cyclic.app/user')
+            .then((d) => {
+                setUser(d.data.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+
+
+    }, [])
+
 
 
 
@@ -171,16 +185,22 @@ function Moments(props) {
 
             </Box>
 
-            <Flex width={['95%', '95%', '95%', '80%']} m='auto' flexWrap={'wrap'} gap={['20px','15px','20px']}>
+            <Flex width={['95%', '95%', '95%', '80%']} m='auto' flexWrap={'wrap'} gap={['20px', '15px', '20px']}>
 
-                <Cards/>
-                <Cards/>
-                <Cards/>
-                <Cards/>
+                {moments.length !== 0 && user.length !== 0 && moments.map((el, ind) => {
+                    return user.map((uel)=>{
+                        // console.log(uel)
+                        if(uel.id == el.id){
+                            return <Cards el={el} key={ind + "moments"} uel={uel} />
+                        }
+                        
+                    })
+                    
+                })}
 
             </Flex>
 
-            <Flex width={['95%', '95%', '95%', '80%']} m='auto' py={['20px','30px']} gap={['5px' ,'10px']} alignItems={['center']}>
+            <Flex width={['95%', '95%', '95%', '80%']} m='auto' py={['20px', '30px']} gap={['5px', '10px']} alignItems={['center']}>
 
                 <Text fontWeight='400'>Page:</Text>
                 {Pagination(5)}
