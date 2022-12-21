@@ -49,9 +49,9 @@ signup.post('/', async (req, res) => {
         let resp = await create_User.save()
 
         //adding data in userDetail DB..
-        const userType = resp.userType
+        const userType = userData.userType
 
-        userData.details.id = resp._id
+        userData.details.uid = resp._id
 
         if (userType === 'user') {
             const addData = new userDetailModel(userData.details)
@@ -64,7 +64,7 @@ signup.post('/', async (req, res) => {
         //creating token
         const token = create_jwt({ id: resp._id, email: resp.email, userType: resp.userType })
 
-        res.send({ msg: "signup successfully", token, status: true, detail: { type: resp.userType, email: resp.email, doc: resp.dateOfCreated } })
+        res.send({ msg: "signup successfully", token, status: true, detail: { type: resp.userType, email: resp.email, doc: resp.dateOfCreated , avatar:resp.avatar } })
 
 
     } catch (error) {

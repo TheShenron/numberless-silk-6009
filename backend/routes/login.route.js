@@ -121,42 +121,34 @@ login.post('/',
 
 
 //login user details
-login.get('/details',
-    tokenInHeader,
-    async (req, res) => {
+login.get('/d/:userType', async (req, res) => {
 
-        const token = req.headers['authorization'].split(" ")[1]
+        const query = req.query
+        const userType = req.params.userType
 
         try {
 
-            //geting data from token
-            const tokenData = check_jwt(token)
-
-            //checking which type of user is this
-            const user = await userModel.findOne({ id: tokenData.id })
-
-
-
-            if (user === null) return res.send({ msg: "Invalid User ", status: false })
 
             //checking type and gating data from DB
-            if (tokenData.userType === 'user') {
+            if (userType === 'user') {
 
-                const userData = await userDetailModel.findOne({ id: tokenData.id })
-
-                if (userData == null) return res.send({ msg: "userDetails not present", status: false })
-
-                return res.send({ msg: "user Details found", status: true, details: userData })
-
-            } else {
-
-                const userData = await restaurantDetailModel.findOne({ id: tokenData.id })
+                const userData = await userDetailModel.find( query )
 
                 if (userData == null) return res.send({ msg: "userDetails not present", status: false })
 
                 return res.send({ msg: "user Details found", status: true, details: userData })
 
+            } else if(userType === 'restaurant') {
 
+                const userData = await restaurantDetailModel.find( query )
+
+                if (userData == null) return res.send({ msg: "userDetails not present", status: false })
+
+                return res.send({ msg: "user Details found", status: true, details: userData })
+
+
+            }else{
+                res.send({msg:"Invalid Request" , status:false})
             }
 
 

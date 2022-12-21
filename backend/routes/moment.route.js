@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const userfood = Router()
+const moment = Router()
 
 //middlewares
 const { check_jwt } = require('../middleware/JwtToken')
@@ -8,36 +8,26 @@ const { tokenInHeader } = require('../middleware/CheckToken')
 
 //UserModel DB
 const { userModel } = require('../model/User.model')
-const { UserFoodListMenuModel } = require('../model/UserFoodList.model')
 const { checkField , RcheckField } = require('../middleware/CheckField')
-
+const { MomentModel } = require('../model/Moments.model')
 
 //routes
 
-//get restaurant food menu list...
-userfood.get('/',
-    tokenInHeader,
-    async (req, res) => {
+//get user food menu list...
+moment.get('/', async (req, res) => {
 
-        const token = req.headers['authorization'].split(" ")[1]
+        const query = req.query
 
         try {
-
-            //geting data from token
-            const tokenData = check_jwt(token)
             
-            //checking userType 
-            const userType = await userModel.findById({ _id: tokenData.id })
-            if (userType.userType === 'restaurant') return res.send({ msg: "Food menue is only for User", status: false })
-
             //geting data from rest food menu DB
-            const foodList = await UserFoodListMenuModel.find({ id: tokenData.id })
+            const foodList = await MomentModel.find(query)
 
             res.send({ msg: "success", data: foodList })
 
         } catch (error) {
             console.log(error)
-            res.send({ msg: "error while feting rest food menu", status: false })
+            res.send({ msg: "error while feting user food menu", status: false })
         }
     })
 
@@ -47,9 +37,10 @@ userfood.get('/',
 const userFoodData = {
     image:"string",
     title:"string",
-    description:"string"
+    description:"string",
+    user:"string"
 }
-userfood.post('/add',
+moment.post('/add',
     tokenInHeader,
     (req,res,next)=>{checkField(req,res,next,userFoodData)},
     async (req, res) => {
@@ -66,8 +57,8 @@ userfood.post('/add',
             if (userType.userType === 'restaurant') return res.send({ msg: "Food menue is only for User", status: false })
 
             //adding data in resFoodList...
-            bodyData.id = tokenData.id
-            const isAdded = new UserFoodListMenuModel(bodyData)
+            bodyData.uid = tokenData.id
+            const isAdded = new MomentModel(bodyData)
             await isAdded.save()
 
             res.send({ msg: "FoodList Added", status: true })
@@ -83,8 +74,8 @@ userfood.post('/add',
 
 
 
-//update rest food menu
-userfood.put('/update/:id',
+//update user food menu
+moment.put('/update/:id',
     tokenInHeader,
     (req,res,next)=>{RcheckField(req,res,next,userFoodData)},
     async (req, res) => {
@@ -103,7 +94,7 @@ userfood.put('/update/:id',
             if (userType.userType === 'restaurant') return res.send({ msg: "Food menue is only for User", status: false })
 
             //find and update
-            const isDone = await UserFoodListMenuModel.findOneAndUpdate({ id: tokenData.id, _id: ID }, bodyData)
+            const isDone = await MomentModel.findOneAndUpdate({ id: tokenData.id, _id: ID }, bodyData)
 
             if (isDone == null) return res.send({ msg: "FoodItem is not present", status: false })
 
@@ -120,8 +111,8 @@ userfood.put('/update/:id',
 
 
 
-//delete rest food menu
-userfood.delete('/delete/:id',
+//delete user food menu
+moment.delete('/delete/:id',
     tokenInHeader,
     async (req, res) => {
 
@@ -138,7 +129,7 @@ userfood.delete('/delete/:id',
             if (userType.userType === 'restaurant') return res.send({ msg: "Food menue is only for User", status: false })
 
             //find and update
-            const isDone = await UserFoodListMenuModel.findOneAndDelete({ id: tokenData.id, _id: ID })
+            const isDone = await MomentModel.findOneAndDelete({ id: tokenData.id, _id: ID })
 
             if (isDone == null) return res.send({ msg: "FoodItem is not present", status: false })
 
@@ -155,4 +146,43 @@ userfood.delete('/delete/:id',
 
 
 
-module.exports = { userfood }
+
+//makeFeature rest food menu
+moment.patch('/f/:id',
+tokenInHeader,
+async (req, res) => {
+
+    const token = req.headers['authorization'].split(" ")[1]
+    const ID = req.params.id
+
+    try {
+        
+        //geting data from token
+        const tokenData = check_jwt(token)
+
+        //checking userType 
+        const userType = await userModel.findById({_id:tokenData.id})
+        if(userType.userType === 'user') return res.send({msg:"Food menue is only for Restaurant" , status:false})
+
+
+        //finding pre feature
+        const isfind = await MomentModel.findOneAndUpdate({uid:tokenData.id , featured:true} , {featured:false})
+        console.log(isfind)
+        
+        //find and update
+        const isDone = await MomentModel.findOneAndUpdate({uid:tokenData.id , _id:ID} , {featured:true})
+
+        if(isDone == null) return res.send({msg:"Moment is not present" , status: false})
+
+        res.send({msg:"Moment featured changed" , status:true})
+
+    } catch (error) {
+        console.log(error)
+        res.send({msg:"error while Moment featured " , status: false})
+    }
+
+})
+
+
+
+module.exports = { moment }

@@ -11,18 +11,11 @@ const { connect } = require('./config/db')
 //routes. imports
 const { login } = require("./routes/login.route")
 const { signup } = require('./routes/signup.route')
-const { featureMeal } = require('./routes/featureMeal.route')
-const { restMenu } = require('./routes/restFoodMenu.route')
-const { userfood } = require('./routes/userFoodList.route')
-const { userRecipe } = require('./routes/userFoodRecipe.route')
-const { foodmenu } = require('./routes/getRestFoodMenu.routes')
-const { restaurant } = require('./routes/getRestaurant.route')
-const { user } = require('./routes/getUser.route')
-const { moments } = require('./routes/getUserFoodList.route')
-const { recipe } = require('./routes/getUserRecipe.route')
+const { menu } = require('./routes/menu.route')
+const { moment } = require('./routes/moment.route')
+const { recipe } = require('./routes/recipe.route')
+const { deal } = require('./routes/deal.route')
 
-//comment system
-const { Rcomment } = require('./routes/Rcomment.route')
 
 
 //app use
@@ -38,20 +31,10 @@ app.use(session({secret:process.env.SECRATE_KEY , resave:false , saveUninitializ
 //routes
 app.use('/login' , login)
 app.use('/signup' , signup)
-app.use('/featureMeal' , featureMeal)
-app.use('/restMenu' , restMenu)
-app.use('/userfood' , userfood)
-app.use('/userRecipe' , userRecipe)
-
-//comment
-app.use('/rcomment' , Rcomment)
-
-//get routes
-app.use('/restaurant' , restaurant)
-app.use('/foodmenu' , foodmenu)
-app.use('/user' , user)
-app.use('/moments' , moments)
+app.use('/moment' , moment)
 app.use('/recipe' , recipe)
+app.use('/menu' , menu)
+app.use('/deal' , deal )
 
 
 app.get('/' , (req,res)=>{

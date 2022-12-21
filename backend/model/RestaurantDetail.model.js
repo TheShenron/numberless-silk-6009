@@ -30,16 +30,13 @@ const restaurantDetailSchema = mongoose.Schema({
         mealDeal:String,
         foodMenu:String,
         outlet:String,
-        summery:{
-            type:String,
-            maxlength:1000
-        }
+        halala:String,
     },
     about:{
         type:String,
         maxlength:1000
     },
-    id:{
+    uid:{
         type:String,
         required: true
     }

@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const restMenu = Router()
+const menu = Router()
 
 //middlewares
 const { check_jwt } = require('../middleware/JwtToken')
@@ -9,30 +9,20 @@ const { checkField , RcheckField } = require('../middleware/CheckField')
 
 //UserModel DB
 const { userModel } = require('../model/User.model')
-const { restaurantFoodMenuModel } = require('../model/RestaurantFoodMenu.model')
-
+const { FoodMenuModel } = require('../model/FoodMenu.model')
 
 
 //routes
 
 //get restaurant food menu list...
-restMenu.get('/',
-    tokenInHeader,
-    async (req, res) => {
+menu.get('/', async (req, res) => {
 
-        const token = req.headers['authorization'].split(" ")[1]
+        const query = req.query
 
         try {
 
-            //geting data from token
-            const tokenData = check_jwt(token)
-
-            //checking userType 
-            const userType = await userModel.findById({_id:tokenData.id})
-            if(userType.userType === 'user') return res.send({msg:"Food menue is only for Restaurant" , status:false})
-
             //geting data from rest food menu DB
-            const foodList = await restaurantFoodMenuModel.find({ id: tokenData.id })
+            const foodList = await FoodMenuModel.find( query )
 
             res.send({ msg: "success", data: foodList })
 
@@ -48,9 +38,9 @@ restMenu.get('/',
 const addRestMenueData = {
     image:"string",
     title:"string",
-    description:"string"
+    description:"string" 
 }
-restMenu.post('/add',
+menu.post('/add',
     tokenInHeader,
     (req,res,next) =>{checkField(req,res,next,addRestMenueData)},
     async (req, res) => {
@@ -68,8 +58,8 @@ restMenu.post('/add',
              if(userType.userType === 'user') return res.send({msg:"Food menue is only for Restaurant" , status:false})
 
             //adding data in resFoodList...
-            bodyData.id = tokenData.id
-            const isAdded = new restaurantFoodMenuModel(bodyData)
+            bodyData.uid = tokenData.id
+            const isAdded = new FoodMenuModel(bodyData)
             await isAdded.save()
 
             res.send({msg:"FoodList Added" , status:true})
@@ -91,7 +81,7 @@ const updateRestMenueData  = {
     title:"string",
     description:"string"
 }
-restMenu.put('/update/:id',
+menu.put('/update/:id',
     tokenInHeader,
     (req,res,next)=>{RcheckField(req,res,next,updateRestMenueData)},
     async (req, res) => {
@@ -110,7 +100,7 @@ restMenu.put('/update/:id',
              if(userType.userType === 'user') return res.send({msg:"Food menue is only for Restaurant" , status:false})
 
             //find and update
-            const isDone = await restaurantFoodMenuModel.findOneAndUpdate({id:tokenData.id , _id:ID} , bodyData)
+            const isDone = await FoodMenuModel.findOneAndUpdate({id:tokenData.id , _id:ID} , bodyData)
 
             if(isDone == null) return res.send({msg:"FoodItem is not present" , status: false})
 
@@ -128,7 +118,7 @@ restMenu.put('/update/:id',
 
 
 //delete rest food menu
-restMenu.delete('/delete/:id',
+menu.delete('/delete/:id',
     tokenInHeader,
     async (req, res) => {
 
@@ -145,7 +135,7 @@ restMenu.delete('/delete/:id',
               if(userType.userType === 'user') return res.send({msg:"Food menue is only for Restaurant" , status:false})
 
             //find and update
-            const isDone = await restaurantFoodMenuModel.findOneAndDelete({id:tokenData.id , _id:ID})
+            const isDone = await FoodMenuModel.findOneAndDelete({id:tokenData.id , _id:ID})
 
             if(isDone == null) return res.send({msg:"FoodItem is not present" , status: false})
 
@@ -162,4 +152,46 @@ restMenu.delete('/delete/:id',
 
 
 
-module.exports = { restMenu }
+//makeFeature rest food menu
+menu.patch('/f/:id',
+    tokenInHeader,
+    async (req, res) => {
+
+        const token = req.headers['authorization'].split(" ")[1]
+        const ID = req.params.id
+
+        try {
+            
+            //geting data from token
+            const tokenData = check_jwt(token)
+
+            //checking userType 
+            const userType = await userModel.findById({_id:tokenData.id})
+            if(userType.userType === 'user') return res.send({msg:"Food menue is only for Restaurant" , status:false})
+
+
+            //finding pre feature
+            const isfind = await FoodMenuModel.findOneAndUpdate({uid:tokenData.id , featured:true} , {featured:false})
+            console.log(isfind)
+            
+            //find and update
+            const isDone = await FoodMenuModel.findOneAndUpdate({uid:tokenData.id , _id:ID} , {featured:true})
+
+            if(isDone == null) return res.send({msg:"Menu is not present" , status: false})
+
+            res.send({msg:"Menu featured changed" , status:true})
+
+        } catch (error) {
+            console.log(error)
+            res.send({msg:"error while Menu featured " , status: false})
+        }
+
+    })
+
+
+
+
+
+
+
+module.exports = { menu }
