@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const userRecipe = Router()
+const recipe = Router()
 
 //middlewares
 const { check_jwt } = require('../middleware/JwtToken')
@@ -9,40 +9,31 @@ const { checkField , RcheckField } = require('../middleware/CheckField')
 
 //UserModel DB
 const { userModel } = require('../model/User.model')
-const { UserFoodRecipeModel } = require('../model/UserFoodRecipe.model')
+const { RecipeModel } = require('../model/Recipe.model')
 
 //routes
 
-//get restaurant food menu list...
-userRecipe.get('/',
-    tokenInHeader,
-    async (req, res) => {
+//get user food menu list...
+recipe.get('/', async (req, res) => {
 
-        const token = req.headers['authorization'].split(" ")[1]
+        const query = req.query
 
         try {
 
-            //geting data from token
-            const tokenData = check_jwt(token)
-
-            //checking userType 
-            const userType = await userModel.findById({ _id: tokenData.id })
-            if (userType.userType === 'restaurant') return res.send({ msg: "Food recipe is only for User", status: false })
-
             //geting data from rest food menu DB
-            const foodList = await UserFoodRecipeModel.find({ id: tokenData.id })
+            const foodList = await RecipeModel.find( query )
 
             res.send({ msg: "success", data: foodList })
 
         } catch (error) {
             console.log(error)
-            res.send({ msg: "error while deleted data in resFoodRecipeList", status: false })
+            res.send({ msg: "error while deleted data in RecipeList", status: false })
         }
     })
 
 
 
-//add rest food menu
+//add user food menu
 const userRecipeData = {
     title:"",
     image:"",
@@ -53,7 +44,7 @@ const userRecipeData = {
     ingredients:"",
     category:"",
 }
-userRecipe.post('/add',
+recipe.post('/add',
     tokenInHeader,
     (req,res,next)=>{checkField(req,res,next,userRecipeData)},
     async (req, res) => {
@@ -71,8 +62,8 @@ userRecipe.post('/add',
             if (userType.userType === 'restaurant') return res.send({ msg: "Food recipe is only for User", status: false })
 
             //adding data in resFoodList...
-            bodyData.id = tokenData.id
-            const isAdded = new UserFoodRecipeModel(bodyData)
+            bodyData.uid = tokenData.id
+            const isAdded = new RecipeModel(bodyData)
             await isAdded.save()
 
             res.send({ msg: "FoodRecipe Added", status: true })
@@ -89,7 +80,7 @@ userRecipe.post('/add',
 
 
 //update rest food menu
-userRecipe.put('/update/:id',
+recipe.put('/update/:id',
     tokenInHeader,
     (req,res,next)=>{RcheckField(req,res,next,userRecipeData)},
     async (req, res) => {
@@ -108,7 +99,7 @@ userRecipe.put('/update/:id',
             if (userType.userType === 'restaurant') return res.send({ msg: "Food recipe is only for User", status: false })
 
             //find and update
-            const isDone = await UserFoodRecipeModel.findOneAndUpdate({ id: tokenData.id, _id: ID }, bodyData)
+            const isDone = await RecipeModel.findOneAndUpdate({ id: tokenData.id, _id: ID }, bodyData)
 
             if (isDone == null) return res.send({ msg: "FoodRecipe is not present", status: false })
 
@@ -126,7 +117,7 @@ userRecipe.put('/update/:id',
 
 
 //delete rest food menu
-userRecipe.delete('/delete/:id',
+recipe.delete('/delete/:id',
     tokenInHeader,
     async (req, res) => {
 
@@ -143,7 +134,7 @@ userRecipe.delete('/delete/:id',
             if (userType.userType === 'restaurant') return res.send({ msg: "Food recipe is only for User", status: false })
 
             //find and update
-            const isDone = await UserFoodRecipeModel.findOneAndDelete({ id: tokenData.id, _id: ID })
+            const isDone = await RecipeModel.findOneAndDelete({ id: tokenData.id, _id: ID })
 
             if (isDone == null) return res.send({ msg: "FoodRecipe is not present", status: false })
 
@@ -158,6 +149,41 @@ userRecipe.delete('/delete/:id',
 
 
 
+//makeFeature rest food menu
+recipe.patch('/f/:id',
+    tokenInHeader,
+    async (req, res) => {
+
+        const token = req.headers['authorization'].split(" ")[1]
+        const ID = req.params.id
+
+        try {
+            
+            //geting data from token
+            const tokenData = check_jwt(token)
+
+            //checking userType 
+            const userType = await userModel.findById({_id:tokenData.id})
+            if(userType.userType === 'user') return res.send({msg:"Food menue is only for Restaurant" , status:false})
 
 
-module.exports = { userRecipe }
+            //finding pre feature
+            const isfind = await RecipeModel.findOneAndUpdate({uid:tokenData.id , featured:true} , {featured:false})
+            console.log(isfind)
+            
+            //find and update
+            const isDone = await RecipeModel.findOneAndUpdate({uid:tokenData.id , _id:ID} , {featured:true})
+
+            if(isDone == null) return res.send({msg:"Recipe is not present" , status: false})
+
+            res.send({msg:"Recipe featured changed" , status:true})
+
+        } catch (error) {
+            console.log(error)
+            res.send({msg:"error while Recipe featured " , status: false})
+        }
+
+    })
+
+
+module.exports = { recipe }

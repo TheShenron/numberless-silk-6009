@@ -33,7 +33,7 @@ const userDetailSchema = mongoose.Schema({
         type:String,
         maxlength:1000
     },
-    id:{
+    uid:{
         type:String,
         required: true
     }

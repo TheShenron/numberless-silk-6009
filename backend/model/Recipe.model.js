@@ -13,10 +13,22 @@ const UserFoodRecipeSchema = mongoose.Schema({
     description:String,
     ingredients:String,
     category:String,
-    id:String
+    uid:String,
+    userType:{
+        type:String,
+        default:'user'
+    },
+    featured:{
+        type:Boolean,
+        default: false
+    },
+    user:{
+        name:String,
+        avatar:String
+    }
 
 })
 
-const UserFoodRecipeModel = mongoose.model('userFoodRecipe' , UserFoodRecipeSchema)
+const RecipeModel = mongoose.model('recipe' , UserFoodRecipeSchema)
 
-module.exports = { UserFoodRecipeModel }
+module.exports = { RecipeModel }
