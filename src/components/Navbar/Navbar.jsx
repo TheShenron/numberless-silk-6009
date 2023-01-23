@@ -1,10 +1,16 @@
 import React from 'react';
+import Login from '../../Modal/Login'
 import { Avatar, Box, Flex, Heading, Image, Link, Spacer } from "@chakra-ui/react";
 import { NavLink } from 'react-router-dom';
 import Drower from './Drower';
+import { useState } from 'react';
+import SignupModal from '../../Modal/SignupModal';
+import Signup from '../../pages/Signup';
 const favicon = 'https://www.kindmeal.my/images/logo-kindmeal.png'
 
 function Navbar(props) {
+
+
   return (
     <Box position='' width='100%' backgroundColor='white'>
 
@@ -20,8 +26,8 @@ function Navbar(props) {
 
           <Flex alignItems='center' gap={['20px', '30px']} fontWeight='bold' pr={['0px', '0xp', '5px', '20px']} display={['none', 'none', 'flex']}>
 
-            <Link as={NavLink} to='/user' style={{ textDecoration: 'none' }}>
-              <Avatar src='#' size='md' bg='gray.200'> </Avatar>
+            <Link style={{ textDecoration: 'none' }}>
+              <Signup avatar={true}/>
             </Link>
 
           </Flex>
@@ -46,14 +52,14 @@ function Navbar(props) {
           fontSize={['xl']}
           color='white'>
 
-          <Link as={NavLink} to='/' _hover={{textDecoration:'none' , backgroundColor:'green.500'}} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Home</Link>
-          <Link as={NavLink} to='/deals' _hover={{textDecoration:'none' , backgroundColor:'green.500'}} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Meal Deals</Link>
-          <Link as={NavLink} to='/moments' _hover={{textDecoration:'none' , backgroundColor:'green.500'}} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Kind Moments</Link>
-          <Link as={NavLink} to='/recipes' _hover={{textDecoration:'none' , backgroundColor:'green.500'}} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Recipes</Link>
-          <Link as={NavLink} to='/directory' _hover={{textDecoration:'none' , backgroundColor:'green.500'}} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Directory</Link>
-          <Link as={NavLink} to='/article' _hover={{textDecoration:'none' , backgroundColor:'green.500'}} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Articles</Link>
-          <Link as={NavLink} to='/mobile' _hover={{textDecoration:'none' , backgroundColor:'green.500'}} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Mobile App</Link>
-          <Link as={NavLink} to='/help' _hover={{textDecoration:'none' , backgroundColor:'green.500'}} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'> Help </Link>
+          <Link as={NavLink} to='/' _hover={{ textDecoration: 'none', backgroundColor: 'green.500' }} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Home</Link>
+          <Link as={NavLink} to='/deals' _hover={{ textDecoration: 'none', backgroundColor: 'green.500' }} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Meal Deals</Link>
+          <Link as={NavLink} to='/moments' _hover={{ textDecoration: 'none', backgroundColor: 'green.500' }} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Kind Moments</Link>
+          <Link as={NavLink} to='/recipes' _hover={{ textDecoration: 'none', backgroundColor: 'green.500' }} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Recipes</Link>
+          <Link as={NavLink} to='/directory' _hover={{ textDecoration: 'none', backgroundColor: 'green.500' }} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Directory</Link>
+          <Link as={NavLink} to='/article' _hover={{ textDecoration: 'none', backgroundColor: 'green.500' }} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Articles</Link>
+          <Link as={NavLink} to='/mobile' _hover={{ textDecoration: 'none', backgroundColor: 'green.500' }} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'>Mobile App</Link>
+          <Link as={NavLink} to='/help' _hover={{ textDecoration: 'none', backgroundColor: 'green.500' }} _activeLink={{ backgroundColor: "green.600", textDecoration: 'none' }} p={['5px']} fontWeight='500'> Help </Link>
 
         </Flex>
 
