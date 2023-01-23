@@ -1,11 +1,16 @@
 import { Avatar, Link, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Flex, Text, useDisclosure, Box } from '@chakra-ui/react';
 import React from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import Login from '../../Modal/Login';
+import SignupModal from '../../Modal/SignupModal';
+import Signup from '../../pages/Signup';
 
 function Drower(props) {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
+
 
     return (
         <div>
@@ -44,8 +49,10 @@ function Drower(props) {
                     </DrawerBody>
 
                     <DrawerFooter>
-                        <Text fontWeight='bold'>Library Management</Text>
+                       <Signup avatar={false} />
                     </DrawerFooter>
+
+
                 </DrawerContent>
             </Drawer>
         </div>

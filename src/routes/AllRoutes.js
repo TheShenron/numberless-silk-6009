@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 // All pages imports..
 import ErrorPage from '../pages/ErrorPage';
 import Homepage from '../pages/Homepage';
-import Identify from '../pages/Identify';
+import Identity from '../pages/Identity';
 import UserRecipe from '../pages/UserRecipe'
 import UserMoment from '../pages/UserMoment'
 import RestaurantDeals from '../pages/RestaurantDeals'
@@ -16,7 +16,8 @@ import Recipes from '../pages/Recipes';
 import Signup from '../pages/Signup';
 import SignupJoin from '../components/SignupJoin';
 import SignupJoinshop from '../components/SignupJoinshop';
-import Login from '../Modal/Login';
+import SignupModal from '../Modal/SignupModal'
+
 // Admin 
 import Dashboard from '../pages/Admin/Dashboard';
 import UpdateDetails from '../pages/UpdateDetails';
@@ -33,7 +34,7 @@ function AllRoutes(props) {
             <Route path='/' element={<Homepage />} />
 
             <Route path='/:name' >
-                <Route index element={<Identify />} />
+                <Route index element={<Identity />} />
                 <Route path='recipes/:id' element={<UserRecipe />} />
                 <Route path='moments/:id' element={<UserMoment />} />
                 <Route path='deals/:id' element={<RestaurantDeals />} />
@@ -52,14 +53,13 @@ function AllRoutes(props) {
                 <Route path='joinshop' element={<SignupJoinshop />} />
                 <Route path='*' element={<ErrorPage />} />
             </Route>
-            <Route path='/sign' element={<SignupRest />}></Route>
+
 
             {/* Admin Part */}
 
-            <Route path='/dashboard/:name'>
+            {/* <Route path='/dashboard/:name'>
                 <Route index element={<Dashboard/>} />
                 <Route path='updatedetail' element={<UpdateDetails/>} />
-                {/*  Routes for CURD operation */}
                 <Route path='*' element={<ErrorPage/>} />
             </Route>
             
@@ -78,12 +78,11 @@ function AllRoutes(props) {
                             <UpdateDetails />
                         </PrivateRoute>
                     } />
-                    {/*  Routes for CURD operation */}
                     <Route path='*' element={<ErrorPage />} />
                 </Route>
 
             <Route path='/login' element={<Login />} />
-            <Route path='*' element={<ErrorPage />} />
+            <Route path='*' element={<ErrorPage />} /> */}
 
         </Routes>
     );

@@ -1,130 +1,79 @@
-import {
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-} from "@chakra-ui/modal";
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Box, Button, Text, useDisclosure, Image, Flex, Avatar } from "@chakra-ui/react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 
-const Signupdivimg = styled.div`
-  width: 100%;
-  margin: auto;
-`;
-const Divimg = styled.div`
-  width: 100%;
-  height: 160px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid grey;
-  border-radius: 20px;
-  margin-bottom: 35px;
-  &:hover {
-    background-color: #ededed;
-  }
-`;
-const Imgdiv = styled.div`
-  width: 75%;
-  height: 140px;
-  margin: 0px 8px;
-`;
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
-`;
-const ImgP = styled.p`
-  font-size: 18px;
-  color: #666666;
-  font-weight: 700;
-  text-align: left;
-  // margin : 10px 0 0 0 ;
-`;
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 0px 0px 8px 0px;
-`;
-const Logo = styled.img`
-  @media only screen and (max-width: 1150px) {
-    width: 70%;
-  }
-`;
 
-const SignupModal = ({ isOpen, onClose }) => {
+const SignupModal = ({ onClose , setStep }) => {
+
   const navigate = useNavigate();
 
   return (
-    <Modal onClose={onClose} size="xl" isOpen={isOpen}>
-      <ModalOverlay />
-      <ModalContent>
-        <ModalHeader
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
-          mt={5}
-        >
-          <Logo src={"https://www.kindmeal.my/images/logo-kindmeal.png"} />
-          <Text color="#666666">Join KindMeal For FREE Now</Text>
-          <Text fontSize={14} color="#666666">
-            Please select the type of membership to proceed
-          </Text>
-        </ModalHeader>
-        <ModalCloseButton />
-        <ModalBody onClick={onClose}>
-          <Signupdivimg>
-            <Divimg onClick={() => navigate("/signup")}>
-              <Imgdiv>
-                <Img
-                  src="https://www.kindmeal.my/images/join_normal.png"
-                  alt=""
-                />
-              </Imgdiv>
-              <Content>
-                <ImgP>Food Lover</ImgP>
-                <p style={{ marginTop: "5px", fontSize: "14px", gap: "2px" }}>
-                  Join FREE to enjoy yummy deals, share reviews & meet our
-                  community of compassionate food lovers.
-                </p>
-              </Content>
-            </Divimg>
-            <Divimg onClick={() => navigate("/sign")}>
-              <Imgdiv>
-                <Img
-                  src="https://www.kindmeal.my/images/join_shop.png"
-                  alt=""
-                />
-              </Imgdiv>
-              <Content>
-                <ImgP>Restaurant / Shop Owner</ImgP>
-                <p style={{ marginTop: "5px", fontSize: "14px", gap: "2px" }}>
-                  List your food outlet, create exciting vegetarian deals &
-                  showcase your delicious menu for FREE. Enjoy our yummy deals,
-                  share reviews & meet food lovers too.
-                </p>
-              </Content>
-            </Divimg>
-          </Signupdivimg>
 
-          <Box display="flex" justifyContent="space-between" pb={3}>
-            <Button border="none" colorScheme="transparent" color="grey" onClick={onClose}>
-              <p onClick={onClose}>Member Login</p>
-            </Button>
+    <>
 
-            <Button colorScheme="transparent" color="grey" onClick={onClose}>
-              <p>Forgot Password ?</p>
-            </Button>
-          </Box>
-        </ModalBody>
-        <ModalFooter></ModalFooter>
-      </ModalContent>
-    </Modal>
+      <ModalHeader
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        mt={5}
+      >
+        <Image src={"https://www.kindmeal.my/images/logo-kindmeal.png"} />
+        <Text color="#666666">Join KindMeal For FREE Now</Text>
+        <Text fontSize={'sm'} color="#666666">
+          Please select the type of membership to proceed
+        </Text>
+      </ModalHeader>
+      <ModalBody>
+        <Flex flexDirection={'column'} gap='10px'>
+
+          <Flex flexDirection={['column', 'row']} textAlign={['center', 'start']} gap={['10px', 0]} cursor={'pointer'} border={'1px'} p='10px' borderRadius={'10px'} borderColor='gray.200' onClick={() => setStep(3)}>
+            <Box w={['100px', '200px']} margin='auto'>
+              <Image
+                src="https://www.kindmeal.my/images/join_normal.png"
+                alt=""
+                objectFit={'contain'}
+              />
+            </Box>
+            <Box px={'10px'}>
+              <Text>Food Lover</Text>
+              <Text fontSize={'sm'}>
+                Join FREE to enjoy yummy deals, share reviews & meet our
+                community of compassionate food lovers.
+              </Text>
+            </Box>
+          </Flex>
+
+
+
+          <Flex flexDirection={['column', 'row']} textAlign={['center', 'start']} gap={['10px', 0]} cursor={'pointer'} border={'1px'} p='10px' borderRadius={'10px'} borderColor='gray.200' onClick={() => setStep(2)}>
+            <Box w={['100px', '300px']} margin='auto'>
+              <Image
+                src="https://www.kindmeal.my/images/join_shop.png"
+                alt=""
+                objectFit={'contain'}
+              />
+            </Box>
+            <Box px={'10px'}>
+              <Text>Restaurant / Shop Owner</Text>
+              <Text style={{ marginTop: "5px", fontSize: "14px", gap: "2px" }}>
+                List your food outlet, create exciting vegetarian deals &
+                showcase your delicious menu for FREE. Enjoy our yummy deals,
+                share reviews & meet food lovers too.
+              </Text>
+            </Box>
+          </Flex>
+
+        </Flex>
+
+        <Box my={'10px'}>
+          <Button p='0' border="none" colorScheme="transparent" color="grey" onClick={()=>setStep(1)}>
+            <Text fontSize={''}>Already have account? Login</Text>
+          </Button>
+
+        </Box>
+      </ModalBody>
+    </>
   );
 };
 
