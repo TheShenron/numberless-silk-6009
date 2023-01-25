@@ -1,7 +1,0 @@
-//All the model should be in this folder eg student.model.js
-
-// And when you exporting fuction or model so follow camelCase
-eg module.exports = { studentModel }
-
-
-// Give the proper coments** and indentation as well

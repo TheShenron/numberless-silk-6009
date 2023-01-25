@@ -21,8 +21,12 @@ const Login = ({ setStep }) => {
 
   const [loginData , setLoginData] = useState({email:"" , password:""})
 
+  console.log(loginData)
+
+
   const HandleSubmit = ()=>{
-    console.log("HandleSubmit")
+
+    console.log("HandleSubmited" )
   }
 
 

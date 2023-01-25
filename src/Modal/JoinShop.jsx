@@ -102,7 +102,7 @@ function JoinShop({ setStep }) {
                         </Flex>
                         <Flex alignItems={'center'} gap='10px'>
                             <FormLabel p='0' fontSize={'sm'}>
-                                <Text width={'100px'} > Contart</Text>
+                                <Text width={'100px'} > Contary</Text>
                             </FormLabel>
                             <Input
                                 placeholder="Malaysia"

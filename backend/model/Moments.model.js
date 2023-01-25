@@ -24,6 +24,6 @@ const UserFoodListMenuSchema = mongoose.Schema({
 
 })
 
-const MomentModel = mongoose.model('moment' , UserFoodListMenuSchema)
+const momentModel = mongoose.model('moment' , UserFoodListMenuSchema)
 
-module.exports = { MomentModel }
+module.exports = { momentModel }

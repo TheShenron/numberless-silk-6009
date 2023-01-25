@@ -1,7 +1,0 @@
-//All the route should be in this folder eg student.route.js
-
-// And when you exporting fuction or route follow the camelCase nameing convention
-eg module.exports = { studentData }
-
-
-// Give the proper coments** and indentation as well
